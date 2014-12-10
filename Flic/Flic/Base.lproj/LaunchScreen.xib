@@ -16,23 +16,11 @@
                         <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ot2-v3-9AT">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="The easiest way to review your photos." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZX-Um-gtj">
-                                    <rect key="frame" x="20" y="190" width="280" height="81"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Keep or Trash with the Swipe of your finger!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wK7-aZ-bSF">
-                                    <rect key="frame" x="20" y="270" width="280" height="83"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="gne-D2-hoN">
-                                    <rect key="frame" x="0.0" y="70" width="320" height="115"/>
+                                    <rect key="frame" x="0.0" y="113" width="320" height="150"/>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" red="0.67843137249999996" green="0.4039215686" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.96212121210000001" green="0.59564393940000004" blue="0.092803030300000006" alpha="1" colorSpace="deviceRGB"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,10 +29,10 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="252" y="323"/>
+            <point key="canvasLocation" x="249" y="289"/>
         </view>
     </objects>
     <resources>
-        <image name="logo.png" width="640" height="231"/>
+        <image name="logo.png" width="640" height="310"/>
     </resources>
 </document>

@@ -55,7 +55,7 @@
     }
     
     cell.textLabel.font = [UIFont fontWithName:@"Futura-Medium" size:18];
-    cell.textLabel.textColor = [UIColor colorWithRed:173.0/255.0f green:103.0/255.0 blue:201.0/255.0 alpha:1.0];
+    cell.textLabel.textColor = [UIColor colorWithRed:240.0/255.0f green:152.0/255.0 blue:26.0/255.0 alpha:1.0];
     if (indexPath.row == 0) {
         cell.textLabel.text = @"Last Week";
     } else if (indexPath.row == 1) {

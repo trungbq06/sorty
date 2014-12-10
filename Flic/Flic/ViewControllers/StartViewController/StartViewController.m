@@ -27,7 +27,7 @@
     }
     
     CGRect frame = _btnSelect.frame;
-    [_btnSelect setFrame:CGRectMake(frame.origin.x, self.view.frame.size.height - frame.size.height - 50, frame.size.width, frame.size.height)];
+    [_btnSelect setFrame:CGRectMake(frame.origin.x, self.view.frame.size.height - frame.size.height - 80, frame.size.width, frame.size.height)];
 }
 
 - (void) viewWillAppear:(BOOL)animated

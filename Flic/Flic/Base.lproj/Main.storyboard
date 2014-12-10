@@ -34,7 +34,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.67843137249999996" green="0.4039215686" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96212121210000001" green="0.59564393940000004" blue="0.092803030300000006" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -43,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fWM-5o-A0G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="699" y="318"/>
+            <point key="canvasLocation" x="765" y="121"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -53,7 +53,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QpV-xE-mJl">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QpV-xE-mJl">
                                 <rect key="frame" x="16" y="30" width="18" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="trash.png">
@@ -63,19 +63,7 @@
                                     <action selector="emptyTrashClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Ha-P6-X4j"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OLI-tu-FCe">
-                                <rect key="frame" x="255" y="28" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
-                                <state key="normal" title="Undo">
-                                    <color key="titleColor" red="0.67843137254901964" green="0.40392156862745099" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="undoClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PNx-v4-2fr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oGM-Q7-FI3">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oGM-Q7-FI3">
                                 <rect key="frame" x="7" y="507" width="150" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
@@ -87,7 +75,7 @@
                                     <action selector="trashClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ysc-jx-qCd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xAV-yO-Yti">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xAV-yO-Yti">
                                 <rect key="frame" x="163" y="507" width="150" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
@@ -99,7 +87,7 @@
                                     <action selector="keepClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Jq6-72-DzQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e0N-2e-W6R">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 MB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e0N-2e-W6R">
                                 <rect key="frame" x="122" y="28" width="77" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.67843137249999996" green="0.4039215686" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,14 +95,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO BE CLEARED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ng7-ln-HaU">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TO BE CLEARED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ng7-ln-HaU">
                                 <rect key="frame" x="122" y="58" width="77" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="10"/>
                                 <color key="textColor" red="0.59173318614130432" green="0.59173318614130432" blue="0.59173318614130432" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Fm-kb-PQz">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Fm-kb-PQz">
                                 <rect key="frame" x="27" y="21" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.95342221469999999" green="0.20899079919999999" blue="0.1801410433" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,30 +110,34 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" id="sdD-nk-hLA">
-                                <rect key="frame" x="0.0" y="427" width="320" height="83"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Slide LEFT to Trash
-or RIGHT to keep</string>
-                                <color key="textColor" red="0.66274509800000003" green="0.69411764710000001" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fDb-Me-Rxa">
-                                <rect key="frame" x="60" y="25" width="49" height="36"/>
+                                <rect key="frame" x="7" y="8" width="49" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                 <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.67843137249999996" green="0.4039215686" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.96212121210000001" green="0.59564393940000004" blue="0.092803030300000006" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="backClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TD5-qk-0t9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OLI-tu-FCe">
+                                <rect key="frame" x="262" y="11" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <state key="normal" title="Undo">
+                                    <color key="titleColor" red="0.96212121210000001" green="0.59564393940000004" blue="0.092803030300000006" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="undoClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PNx-v4-2fr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
@@ -155,7 +147,6 @@ or RIGHT to keep</string>
                         <outlet property="btnTrash" destination="oGM-Q7-FI3" id="Q40-KY-mOz"/>
                         <outlet property="btnUndo" destination="OLI-tu-FCe" id="JL6-CS-Ekz"/>
                         <outlet property="imageSize" destination="e0N-2e-W6R" id="Cje-Fc-H5y"/>
-                        <outlet property="introText" destination="sdD-nk-hLA" id="UPe-Mx-gMJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -243,10 +234,10 @@ or RIGHT to keep</string>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vkc-E3-TYD">
-                                        <rect key="frame" x="51" y="426" width="219" height="55"/>
+                                        <rect key="frame" x="80" y="463" width="160" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
-                                        <state key="normal" backgroundImage="select_frame.png">
+                                        <state key="normal" backgroundImage="button_select.png">
                                             <color key="titleColor" red="0.67843137249999996" green="0.4039215686" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -254,26 +245,47 @@ or RIGHT to keep</string>
                                             <action selector="btnSelectClick:" destination="jOq-J2-KXZ" eventType="touchUpInside" id="d4Z-bZ-PE0"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="The easiest way to review your photos." textAlignment="center" selectable="NO" id="y60-OY-dV4">
-                                        <rect key="frame" x="20" y="190" width="280" height="81"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Keep or Trash with the Swipe of your finger!" textAlignment="center" selectable="NO" id="jBP-as-0H1">
-                                        <rect key="frame" x="20" y="270" width="280" height="83"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" id="gE4-sB-D1Y">
-                                        <rect key="frame" x="0.0" y="70" width="320" height="115"/>
+                                        <rect key="frame" x="0.0" y="129" width="320" height="155"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IeS-He-blJ">
+                                        <rect key="frame" x="97" y="19" width="126" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="button_top.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bN7-FQ-n0e">
+                                        <rect key="frame" x="97" y="358" width="126" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="button_bottom.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KAt-vF-2Ct">
+                                        <rect key="frame" x="286" y="142" width="34" height="126"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="button_right.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VpT-qc-UmC">
+                                        <rect key="frame" x="0.0" y="144" width="34" height="126"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="button_left.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select 2 to 4 Albums to sort pictures" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j78-Uq-EHU">
+                                        <rect key="frame" x="80" y="503" width="160" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.67843137249999996" green="0.4039215686" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96212121212121215" green="0.59564393939393945" blue="0.092803030303030304" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -318,7 +330,7 @@ or RIGHT to keep</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.67843137249999996" green="0.4039215686" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96212121210000001" green="0.59564393940000004" blue="0.092803030300000006" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -334,8 +346,12 @@ or RIGHT to keep</string>
         <image name="back.png" width="64" height="64"/>
         <image name="btn_keep.png" width="300" height="110"/>
         <image name="btn_trash.png" width="300" height="110"/>
-        <image name="logo.png" width="640" height="231"/>
-        <image name="select_frame.png" width="438" height="110"/>
+        <image name="button_bottom.png" width="248" height="67"/>
+        <image name="button_left.png" width="67" height="248"/>
+        <image name="button_right.png" width="67" height="248"/>
+        <image name="button_select.png" width="315" height="63"/>
+        <image name="button_top.png" width="248" height="69"/>
+        <image name="logo.png" width="640" height="310"/>
         <image name="trash.png" width="36" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
