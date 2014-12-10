@@ -1,0 +1,25 @@
+//
+//  Flic-Prefix.pch
+//  Flic
+//
+//  Created by TrungBQ on 10/29/14.
+//  Copyright (c) 2014 Mr Trung. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+#define IS_IPHONE ( [ [ [UIDevice currentDevice] model ] rangeOfString:@"iPhone"].location != NSNotFound )
+#define IS_WIDE_SCREEN ( fabs ( (double) [[UIScreen mainScreen] bounds].size.height - (double)568 ) < DBL_EPSILON)
+#define IS_IPHONE_5 ( IS_IPHONE && IS_WIDE_SCREEN )
+
+#define kImageNotify @"image_notify"
+#define kUpdateSize  @"update_size"
