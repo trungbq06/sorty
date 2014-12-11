@@ -8,8 +8,24 @@
 
 #import "StartViewController.h"
 #import "TimeFrameViewController.h"
+#import "AlbumPickerViewController.h"
+#import "FPPopoverController.h"
 
 @interface StartViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *btnTop;
+@property (weak, nonatomic) IBOutlet UIButton *btnRight;
+@property (weak, nonatomic) IBOutlet UIButton *btnBottom;
+@property (weak, nonatomic) IBOutlet UIButton *btnLeft;
+
+@property (nonatomic, retain) UIBarButtonItem *barBtnTop;
+@property (nonatomic, retain) UIBarButtonItem *barBtnRight;
+@property (nonatomic, retain) UIBarButtonItem *barBtnBottom;
+@property (nonatomic, retain) UIBarButtonItem *barBtnLeft;
+
+- (IBAction)selectTopClick:(id)sender;
+- (IBAction)selectRightClick:(id)sender;
+- (IBAction)selectDownClick:(id)sender;
+- (IBAction)selectLeftClick:(id)sender;
 
 @end
 
@@ -17,6 +33,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _barBtnTop = [[UIBarButtonItem alloc] initWithCustomView:_btnTop];
+    _barBtnRight = [[UIBarButtonItem alloc] initWithCustomView:_btnRight];
+    _barBtnBottom = [[UIBarButtonItem alloc] initWithCustomView:_btnBottom];
+    _barBtnLeft = [[UIBarButtonItem alloc] initWithCustomView:_btnLeft];
     
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
         // iOS 7
@@ -75,5 +96,53 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (NSMutableArray*) loadAlbums {
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    
+    NSMutableArray *images = [_phImagePicker selectAlbums];
+    
+    [SVProgressHUD dismiss];
+    
+    return images;
+}
+
+- (IBAction)selectTopClick:(id)sender {
+    AlbumPickerViewController *albumPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"AlbumPickerViewController"];
+    [albumPicker setImageData:[self loadAlbums]];
+    
+    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:albumPicker];
+    popover.contentSize = CGSizeMake(220, 320);
+    popover.arrowDirection = FPPopoverArrowDirectionAny;
+    
+    [popover presentPopoverFromView:_btnTop];
+}
+
+- (IBAction)selectRightClick:(id)sender {
+    AlbumPickerViewController *albumPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"AlbumPickerViewController"];
+    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:albumPicker];
+    popover.contentSize = CGSizeMake(220, 320);
+    popover.arrowDirection = FPPopoverArrowDirectionAny;
+    
+    [popover presentPopoverFromView:_btnRight];
+}
+
+- (IBAction)selectDownClick:(id)sender {
+    AlbumPickerViewController *albumPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"AlbumPickerViewController"];
+    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:albumPicker];
+    popover.contentSize = CGSizeMake(220, 320);
+    popover.arrowDirection = FPPopoverArrowDirectionAny;
+    
+    [popover presentPopoverFromView:_btnBottom];
+}
+
+- (IBAction)selectLeftClick:(id)sender {
+    AlbumPickerViewController *albumPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"AlbumPickerViewController"];
+    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:albumPicker];
+    popover.contentSize = CGSizeMake(220, 320);
+    popover.arrowDirection = FPPopoverArrowDirectionAny;
+    
+    [popover presentPopoverFromView:_btnLeft];
+}
 
 @end

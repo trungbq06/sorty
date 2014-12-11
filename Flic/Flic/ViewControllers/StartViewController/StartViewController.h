@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Photos/Photos.h>
+#import "PHImagePicker.h"
 
 @interface StartViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIButton *btnSelect;
+@property (nonatomic, retain) PHImagePicker  *phImagePicker;
 
 - (IBAction)btnSelectClick:(id)sender;
 

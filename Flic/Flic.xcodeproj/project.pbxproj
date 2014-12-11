@@ -15,6 +15,11 @@
 		379F64E319FF417200B4555C /* TrashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 379F64E219FF417200B4555C /* TrashViewController.m */; };
 		37AD9BDA19FE850000622AC6 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 37AD9BD719FE850000622AC6 /* SVProgressHUD.bundle */; };
 		37AD9BDC19FE850000622AC6 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AD9BD919FE850000622AC6 /* SVProgressHUD.m */; };
+		37ADBFDB1A39DE46005137F2 /* AlbumPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ADBFDA1A39DE46005137F2 /* AlbumPickerViewController.m */; };
+		37ADBFE41A39E655005137F2 /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ADBFDF1A39E655005137F2 /* FPPopoverController.m */; };
+		37ADBFE51A39E655005137F2 /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ADBFE11A39E655005137F2 /* FPPopoverView.m */; };
+		37ADBFE61A39E655005137F2 /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37ADBFE31A39E655005137F2 /* FPTouchView.m */; };
+		37ADBFEA1A39E805005137F2 /* add_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 37ADBFE91A39E805005137F2 /* add_new.png */; };
 		37B8A8351A01129A005575CF /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 37B8A8341A01129A005575CF /* Icon.png */; };
 		37CDDB4519FE004400624D91 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDDB4419FE004400624D91 /* main.m */; };
 		37CDDB4819FE004400624D91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CDDB4719FE004400624D91 /* AppDelegate.m */; };
@@ -78,6 +83,16 @@
 		37AD9BD719FE850000622AC6 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		37AD9BD819FE850000622AC6 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		37AD9BD919FE850000622AC6 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		37ADBFD91A39DE46005137F2 /* AlbumPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumPickerViewController.h; sourceTree = "<group>"; };
+		37ADBFDA1A39DE46005137F2 /* AlbumPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumPickerViewController.m; sourceTree = "<group>"; };
+		37ADBFDD1A39E655005137F2 /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		37ADBFDE1A39E655005137F2 /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		37ADBFDF1A39E655005137F2 /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		37ADBFE01A39E655005137F2 /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		37ADBFE11A39E655005137F2 /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		37ADBFE21A39E655005137F2 /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		37ADBFE31A39E655005137F2 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
+		37ADBFE91A39E805005137F2 /* add_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_new.png; sourceTree = "<group>"; };
 		37B8A8341A01129A005575CF /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		37CDDB3F19FE004400624D91 /* Slide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CDDB4319FE004400624D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -224,6 +239,29 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		37ADBFD81A39DE23005137F2 /* AlbumPickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				37ADBFD91A39DE46005137F2 /* AlbumPickerViewController.h */,
+				37ADBFDA1A39DE46005137F2 /* AlbumPickerViewController.m */,
+			);
+			path = AlbumPickerViewController;
+			sourceTree = "<group>";
+		};
+		37ADBFDC1A39E655005137F2 /* FPPopover */ = {
+			isa = PBXGroup;
+			children = (
+				37ADBFDD1A39E655005137F2 /* ARCMacros.h */,
+				37ADBFDE1A39E655005137F2 /* FPPopoverController.h */,
+				37ADBFDF1A39E655005137F2 /* FPPopoverController.m */,
+				37ADBFE01A39E655005137F2 /* FPPopoverView.h */,
+				37ADBFE11A39E655005137F2 /* FPPopoverView.m */,
+				37ADBFE21A39E655005137F2 /* FPTouchView.h */,
+				37ADBFE31A39E655005137F2 /* FPTouchView.m */,
+			);
+			path = FPPopover;
+			sourceTree = "<group>";
+		};
 		37CDDB3619FE004400624D91 = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +346,7 @@
 		37CDDB7219FE354400624D91 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				37ADBFDC1A39E655005137F2 /* FPPopover */,
 				679D8B0E1A06DFA300E26923 /* PHImagePicker */,
 				37AD9BD519FE850000622AC6 /* SVProgressHUD */,
 				37CDDB8019FE392600624D91 /* ELCImagePicker */,
@@ -355,6 +394,7 @@
 		37CDDBB419FE39DC00624D91 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				37ADBFD81A39DE23005137F2 /* AlbumPickerViewController */,
 				370BED8419FF2BE0000AFC87 /* AlbumViewController */,
 				370BED8719FF2BE0000AFC87 /* PhotoViewController */,
 				370BED8A19FF2BE0000AFC87 /* StartViewController */,
@@ -377,6 +417,7 @@
 		6705BF501A39035700D4AC93 /* Sorty */ = {
 			isa = PBXGroup;
 			children = (
+				37ADBFE91A39E805005137F2 /* add_new.png */,
 				6705BF7D1A39044000D4AC93 /* arrow_down.png */,
 				6705BF7E1A39044000D4AC93 /* arrow_left.png */,
 				6705BF7F1A39044000D4AC93 /* arrow_right.png */,
@@ -475,6 +516,7 @@
 				37B8A8351A01129A005575CF /* Icon.png in Resources */,
 				37CDDBCB19FE461400624D91 /* back.png in Resources */,
 				37AD9BDA19FE850000622AC6 /* SVProgressHUD.bundle in Resources */,
+				37ADBFEA1A39E805005137F2 /* add_new.png in Resources */,
 				6705BF901A39044000D4AC93 /* button_select.png in Resources */,
 				6705BF8F1A39044000D4AC93 /* button_right.png in Resources */,
 				6705BF8B1A39044000D4AC93 /* arrow_up.png in Resources */,
@@ -508,14 +550,18 @@
 				379F64DE19FF2D6000B4555C /* ImageHolder.m in Sources */,
 				37AD9BDC19FE850000622AC6 /* SVProgressHUD.m in Sources */,
 				37CDDBA419FE392600624D91 /* ELCOverlayImageView.m in Sources */,
+				37ADBFE51A39E655005137F2 /* FPPopoverView.m in Sources */,
 				37CDDB9819FE392600624D91 /* ELCAlbumPickerController.m in Sources */,
 				37CDDB9E19FE392600624D91 /* ELCAssetTablePicker.m in Sources */,
+				37ADBFE61A39E655005137F2 /* FPTouchView.m in Sources */,
 				37CDDB4819FE004400624D91 /* AppDelegate.m in Sources */,
 				37CDDB4519FE004400624D91 /* main.m in Sources */,
 				370BED9619FF2BE0000AFC87 /* TimeFrameViewController.m in Sources */,
 				37CDDBA019FE392600624D91 /* ELCConsole.m in Sources */,
 				370BED9219FF2BE0000AFC87 /* PhotoViewController.m in Sources */,
 				370BED9019FF2BE0000AFC87 /* AlbumViewController.m in Sources */,
+				37ADBFE41A39E655005137F2 /* FPPopoverController.m in Sources */,
+				37ADBFDB1A39DE46005137F2 /* AlbumPickerViewController.m in Sources */,
 				37CDDB9C19FE392600624D91 /* ELCAssetCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="KCa-NW-Sth">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="KCa-NW-Sth">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -203,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ps4-1D-KGT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-221" y="90"/>
+            <point key="canvasLocation" x="64" y="86"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iI0-XY-CeW">
@@ -255,6 +255,9 @@
                                         <state key="normal" backgroundImage="button_top.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectTopClick:" destination="jOq-J2-KXZ" eventType="touchUpInside" id="z1f-no-Vho"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bN7-FQ-n0e">
                                         <rect key="frame" x="97" y="358" width="126" height="35"/>
@@ -262,6 +265,9 @@
                                         <state key="normal" backgroundImage="button_bottom.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectDownClick:" destination="jOq-J2-KXZ" eventType="touchUpInside" id="fYy-EU-X2f"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KAt-vF-2Ct">
                                         <rect key="frame" x="286" y="142" width="34" height="126"/>
@@ -269,6 +275,9 @@
                                         <state key="normal" backgroundImage="button_right.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectRightClick:" destination="jOq-J2-KXZ" eventType="touchUpInside" id="MIv-xD-vFA"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VpT-qc-UmC">
                                         <rect key="frame" x="0.0" y="144" width="34" height="126"/>
@@ -276,6 +285,9 @@
                                         <state key="normal" backgroundImage="button_left.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="selectLeftClick:" destination="jOq-J2-KXZ" eventType="touchUpInside" id="Mif-ph-q8O"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select 2 to 4 Albums to sort pictures" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j78-Uq-EHU">
                                         <rect key="frame" x="80" y="503" width="160" height="37"/>
@@ -293,12 +305,16 @@
                     <navigationItem key="navigationItem" id="Ffu-n6-VXU"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="btnBottom" destination="bN7-FQ-n0e" id="gJC-Qc-05I"/>
+                        <outlet property="btnLeft" destination="VpT-qc-UmC" id="GqU-Yr-zXS"/>
+                        <outlet property="btnRight" destination="KAt-vF-2Ct" id="KEv-Tm-2wf"/>
                         <outlet property="btnSelect" destination="Vkc-E3-TYD" id="BtB-29-dBa"/>
+                        <outlet property="btnTop" destination="IeS-He-blJ" id="nhn-Jt-gx3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71l-KA-jlx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="424" y="12"/>
+            <point key="canvasLocation" x="180" y="25"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="kbV-hS-5N0">
@@ -339,10 +355,53 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxw-2h-59y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="4"/>
+            <point key="canvasLocation" x="43" y="-13"/>
+        </scene>
+        <!--Album Picker View Controller-->
+        <scene sceneID="Pgy-uY-drE">
+            <objects>
+                <viewController storyboardIdentifier="AlbumPickerViewController" id="btp-sd-oGf" customClass="AlbumPickerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bxj-mY-e4U">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="lfE-pR-chb">
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Album" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e7F-HL-yuL">
+                                        <rect key="frame" x="46" y="0.0" width="109" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tki-B8-Hp6">
+                                        <rect key="frame" x="163" y="9" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" backgroundImage="add_new.png"/>
+                                        <connections>
+                                            <action selector="btnAddClick:" destination="btp-sd-oGf" eventType="touchUpInside" id="nBf-0f-BIT"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96212121210000001" green="0.59564393940000004" blue="0.092803030300000006" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="200" height="320"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9mD-zb-X3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="71" y="-161"/>
         </scene>
     </scenes>
     <resources>
+        <image name="add_new.png" width="49" height="49"/>
         <image name="back.png" width="64" height="64"/>
         <image name="btn_keep.png" width="300" height="110"/>
         <image name="btn_trash.png" width="300" height="110"/>
