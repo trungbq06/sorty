@@ -260,7 +260,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bN7-FQ-n0e">
-                                        <rect key="frame" x="97" y="358" width="126" height="35"/>
+                                        <rect key="frame" x="97" y="340" width="126" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="button_bottom.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -305,6 +305,7 @@
                     <navigationItem key="navigationItem" id="Ffu-n6-VXU"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="bottomText" destination="j78-Uq-EHU" id="Jop-Cg-uRx"/>
                         <outlet property="btnBottom" destination="bN7-FQ-n0e" id="gJC-Qc-05I"/>
                         <outlet property="btnLeft" destination="VpT-qc-UmC" id="GqU-Yr-zXS"/>
                         <outlet property="btnRight" destination="KAt-vF-2Ct" id="KEv-Tm-2wf"/>

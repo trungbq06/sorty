@@ -13,6 +13,9 @@
 @interface StartViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIButton *btnSelect;
+@property (nonatomic, retain) IBOutlet UILabel *bottomText;
+
+
 @property (nonatomic, retain) PHImagePicker  *phImagePicker;
 
 - (IBAction)btnSelectClick:(id)sender;
