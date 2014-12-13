@@ -196,12 +196,16 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
+                        <outlet property="albumBottom" destination="cfV-7n-FaX" id="xID-eh-BUd"/>
+                        <outlet property="albumLeft" destination="Aiz-nU-GkQ" id="bY9-PT-Za7"/>
+                        <outlet property="albumRight" destination="a6J-SD-h8Z" id="VWV-mO-56x"/>
+                        <outlet property="albumTop" destination="YYP-eX-BIy" id="EFs-6r-nth"/>
                         <outlet property="btnUndo" destination="OLI-tu-FCe" id="JL6-CS-Ekz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="-145"/>
+            <point key="canvasLocation" x="77" y="-215"/>
         </scene>
         <!--Trash View Controller-->
         <scene sceneID="bqi-lE-cwE">

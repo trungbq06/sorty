@@ -44,6 +44,16 @@
 @property (assign)          float            totalSize;
 @property (weak, nonatomic) IBOutlet UIButton *btnUndo;
 
+@property (weak, nonatomic) IBOutlet UILabel *albumTop;
+@property (weak, nonatomic) IBOutlet UILabel *albumRight;
+@property (weak, nonatomic) IBOutlet UILabel *albumBottom;
+@property (weak, nonatomic) IBOutlet UILabel *albumLeft;
+
+@property (nonatomic, retain) PHCollection   *phAlbumTop;
+@property (nonatomic, retain) PHCollection   *phAlbumRight;
+@property (nonatomic, retain) PHCollection   *phAlbumLeft;
+@property (nonatomic, retain) PHCollection   *phAlbumBottom;
+
 - (IBAction)trashClick:(id)sender;
 - (IBAction)keepClick:(id)sender;
 - (IBAction)undoClick:(id)sender;

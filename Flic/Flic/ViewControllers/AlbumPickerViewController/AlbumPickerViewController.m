@@ -73,15 +73,19 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     
     if ([_albumType isEqualToString:kTypeTop]) {
         [[NSUserDefaults standardUserDefaults] setObject:title forKey:kTypeTop];
+        [[NSUserDefaults standardUserDefaults] setObject:collection forKey:kAlbumTop];
     }
     if ([_albumType isEqualToString:kTypeRight]) {
         [[NSUserDefaults standardUserDefaults] setObject:title forKey:kTypeRight];
+        [[NSUserDefaults standardUserDefaults] setObject:collection forKey:kAlbumRight];
     }
     if ([_albumType isEqualToString:kTypeLeft]) {
         [[NSUserDefaults standardUserDefaults] setObject:title forKey:kTypeLeft];
+        [[NSUserDefaults standardUserDefaults] setObject:collection forKey:kAlbumLeft];
     }
     if ([_albumType isEqualToString:kTypeBottom]) {
         [[NSUserDefaults standardUserDefaults] setObject:title forKey:kTypeBottom];
+        [[NSUserDefaults standardUserDefaults] setObject:collection forKey:kAlbumBottom];
     }
 }
 

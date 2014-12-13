@@ -28,3 +28,9 @@
 #define kTypeRight   @"right"
 #define kTypeLeft    @"left"
 #define kTypeBottom  @"bottom"
+
+#define kAlbumTop     @"album_top"
+#define kAlbumRight   @"album_right"
+#define kAlbumLeft    @"album_left"
+#define kAlbumBottom  @"album_bottom"
+

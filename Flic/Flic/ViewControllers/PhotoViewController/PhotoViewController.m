@@ -77,28 +77,42 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restoreImageHolder:) name:kImageNotify object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateImageSize:) name:kUpdateSize object:nil];
     
-    /*
-    UIPanGestureRecognizer* pgr = [[UIPanGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(handlePan:)];
-    [self.view addGestureRecognizer:pgr];
-     */
+    [self initializeAlbum];
 }
-/*
--(void)handlePan:(UIPanGestureRecognizer*)pgr;
-{
-    if (pgr.state == UIGestureRecognizerStateChanged) {
-        int tag = touchView.tag;
-        if (tag == kImageTag) {
-        CGPoint center = pgr.view.center;
-        CGPoint translation = [pgr translationInView:pgr.view];
-        center = CGPointMake(center.x + translation.x,
-                             center.y + translation.y);
-        pgr.view.center = center;
-        [pgr setTranslation:CGPointZero inView:pgr.view];
+
+- (void) transformText:(UILabel*) label transform: (float) angle {
+    CGRect frame = label.frame;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.center = CGPointMake(frame.size.width/2 + frame.origin.x, frame.size.height/2 + frame.origin.y);
+    label.transform = CGAffineTransformMakeRotation(angle);
+}
+
+- (void) initializeAlbum {
+    NSString *albumTop = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeTop];
+    _phAlbumTop = [[NSUserDefaults standardUserDefaults] objectForKey:kAlbumTop];
+    
+    if (albumTop) {
+        _albumTop.text = albumTop;
+    }
+    NSString *albumRight = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeRight];
+    _phAlbumRight = [[NSUserDefaults standardUserDefaults] objectForKey:kAlbumRight];
+    
+    if (albumRight) {
+        _albumRight.text = albumRight;
+    }
+    NSString *albumBottom = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeBottom];
+    _phAlbumBottom = [[NSUserDefaults standardUserDefaults] objectForKey:kAlbumBottom];
+    
+    if (albumBottom) {
+        _albumBottom.text = albumBottom;
+    }
+    NSString *albumLeft = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeLeft];
+    _phAlbumLeft = [[NSUserDefaults standardUserDefaults] objectForKey:kAlbumLeft];
+    
+    if (albumLeft) {
+        _albumLeft.text = albumLeft;
     }
 }
-*/
 
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -134,6 +148,13 @@
             [self.view addSubview:imgHolder1];
         }
     }
+    
+    [self bringAlbumToFront];
+}
+
+- (void) bringAlbumToFront {
+    [self.view bringSubviewToFront:_albumRight];
+    [self.view bringSubviewToFront:_albumLeft];
 }
 
 #pragma MARK - Photo Push back
@@ -162,27 +183,6 @@
         imgHeight = 200;
     }
     
-    /*
-    if ([_imageDisplay count] < 3) {
-        int start = 90;
-        int xStart = 40;
-        
-        for (int i = (int) [_imageDisplay count]; i < 3;i++) {
-            ImageHolder *imgHolder1 = [[ImageHolder alloc] initWithFrame:CGRectMake(xStart - i*10, start + i*10, self.view.frame.size.width - 80 + i*20, imgHeight)];
-            UIImageView *imgView1 = [[UIImageView alloc] init];
-            [imgHolder1 setImageView:imgView1];
-            [imgHolder1 setInfo:@""];
-            [imgHolder1 setTag:kImageTag];
-            
-            [_imageDisplay addObject:imgHolder1];
-//            [imgHolder1 setAsset:[rImageData objectAtIndex:[rImageData count] - 1]];
-            [imgHolder1 performSelectorInBackground:@selector(setPhAsset:) withObject:[rImageData objectAtIndex:i - 1]];
-            
-            [self.view addSubview:imgHolder1];
-        }
-    }
-    */
-    
     [self initImageHolder];
     
     [_trashImage removeAllObjects];
@@ -197,35 +197,6 @@
 
 - (void) showImages
 {
-    return;
-    _total = (int) _imageData.count;
-    
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init] ;
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    NSString *date;
-    
-    if (_total > 2) {
-        ImageHolder *imgHolder1 = [_imageDisplay objectAtIndex:0];
-        
-//        [imgHolder1.imageView setImage:[[_imageData objectAtIndex:_total - 3] objectForKey:UIImagePickerControllerOriginalImage]];
-//        date = [NSString stringWithFormat:@"%@MB - %@", [[_imageData objectAtIndex:_total - 3] objectForKey:@"PhotoSize"], [dateFormatter stringFromDate:[[_imageData objectAtIndex:_total - 3] objectForKey:@"PhotoDate"]] ];
-//        imgHolder1.info = date;
-    }
-    
-    if (_total > 1) {
-        ImageHolder *imgHolder2 = [_imageDisplay objectAtIndex:1];
-//        [imgHolder2.imageView setImage:[[_imageData objectAtIndex:_total - 2] objectForKey:UIImagePickerControllerOriginalImage]];
-//        date = [NSString stringWithFormat:@"%@MB - %@", [[_imageData objectAtIndex:_total - 2] objectForKey:@"PhotoSize"], [dateFormatter stringFromDate:[[_imageData objectAtIndex:_total - 2] objectForKey:@"PhotoDate"]] ];
-//        imgHolder2.info = date;
-    }
-    
-    if (_total > 0) {
-        ImageHolder *imgHolder3 = [_imageDisplay objectAtIndex:2];
-//        [imgHolder3.imageView setImage:[[_imageData objectAtIndex:_total - 1] objectForKey:UIImagePickerControllerOriginalImage]];
-//        date = [NSString stringWithFormat:@"%@MB - %@", [[_imageData objectAtIndex:_total - 1] objectForKey:@"PhotoSize"], [dateFormatter stringFromDate:[[_imageData objectAtIndex:_total - 1] objectForKey:@"PhotoDate"]] ];
-//        imgHolder3.info = date;
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -266,12 +237,8 @@
             UIImageView *imgView3 = [[UIImageView alloc] init];
             [newImgHolder setImageView:imgView3];
         
-//            [newImgHolder setAsset:[_imageData objectAtIndex:index]];
             [newImgHolder performSelectorInBackground:@selector(setPhAsset:) withObject:[_imageData objectAtIndex:index]];
         
-//            [newImgHolder.imageView setImage:[[_imageData objectAtIndex:index] objectForKey:UIImagePickerControllerOriginalImage]];
-//            NSString *date = [NSString stringWithFormat:@"%@MB - %@", [[_imageData objectAtIndex:index] objectForKey:@"PhotoSize"], [dateFormatter stringFromDate:[[_imageData objectAtIndex:index] objectForKey:@"PhotoDate"]] ];
-//            newImgHolder.info = date;
             [self.view addSubview:newImgHolder];
             [self.view sendSubviewToBack:newImgHolder];
             [_imageDisplay insertObject:newImgHolder atIndex:0];
@@ -282,6 +249,8 @@
         // Show Trash
         [self showTrash];
     }
+    
+    [self bringAlbumToFront];
 }
 
 - (void) reArrangeImgHolder:(int) imgType
@@ -412,6 +381,31 @@
     [self revealNewImageHolder];
 }
 
+#pragma mark - Move to one album
+- (void) addPhotoToAlbum:(NSString*) album {
+    [_btnUndo setEnabled:YES];
+    
+    _totalKeep++;
+    _lastIsTrash = false;
+    
+    _total = (int) _imageData.count;
+    
+    ImageHolder *imgHolder = [_imageDisplay objectAtIndex:_imageDisplay.count - 1];
+    imgHolder.isKeep = YES;
+    PHAsset *toKeep = imgHolder.phAsset;
+    
+    [_imageDisplay removeObjectAtIndex:_imageDisplay.count - 1];
+    [_undoImage addObject:imgHolder];
+    [imgHolder removeFromSuperview];
+    [_imageData removeObject:toKeep];
+    _total = (int) _imageData.count;
+    
+    if ([_undoImage count] > 3)
+        [_undoImage removeObjectsInRange:NSMakeRange(0, [_undoImage count] - 3)];
+    
+    [self revealNewImageHolder];
+}
+
 - (IBAction)undoClick:(id)sender {
     if ([_undoImage count] > 0) {
         ImageHolder *imgHolder = [_undoImage lastObject];
@@ -480,7 +474,7 @@
     
     if ([[touch.view class] isSubclassOfClass:[ImageHolder class]]) {
         ImageHolder *touchView = (ImageHolder*) touch.view;
-        int tag = touchView.tag;
+        int tag = (int) touchView.tag;
         if (tag == kImageTag) {
             if (CGRectContainsPoint(touchView.frame, touchLocation)) {
                 _touchStarted = true;
@@ -502,7 +496,7 @@
     UITouch *touch = [touches anyObject];
     CGPoint touchLocation = [touch locationInView:self.view];
     float x = touchLocation.x;
-    CGPoint newPoint;
+    float y = touchLocation.y;
     
     if (_touchStarted) {
         ImageHolder *touchView = (ImageHolder*) touch.view;
@@ -513,16 +507,34 @@
             
             touchView.center = touchLocation;
             CGRect frame = self.view.frame;
-            float center = frame.size.width/2;
-            float ratio = abs(center - x) / center;
+            float centerX = frame.size.width/2;
+            float centerY = frame.size.height/2;
+            float ratioX = abs(centerX - x) / centerX;
+            float ratioY = abs(centerY - y) / centerY;
             
             if (x < (frame.size.width/2.0f - 20)) {
+                NSLog(@"Moving Left");
+                
                 touchView.trashBg.hidden = NO;
-                touchView.trashBg.alpha = ratio;
+                touchView.trashBg.alpha = ratioX;
                 touchView.keepBg.hidden = YES;
             } else if (x > (frame.size.width/2.0f + 20)) {
+                NSLog(@"Moving Right");
+                
                 touchView.keepBg.hidden = NO;
-                touchView.keepBg.alpha = ratio;
+                touchView.keepBg.alpha = ratioX;
+                touchView.trashBg.hidden = YES;
+            } else if (y < (centerY - 20)) {
+                NSLog(@"Moving Top");
+                
+                touchView.trashBg.hidden = NO;
+                touchView.trashBg.alpha = ratioY;
+                touchView.keepBg.hidden = YES;
+            } else if (y > (centerY + 20)) {
+                NSLog(@"Moving Bottom");
+                
+                touchView.keepBg.hidden = NO;
+                touchView.keepBg.alpha = ratioY;
                 touchView.trashBg.hidden = YES;
             } else {
                 touchView.trashBg.hidden = YES;
@@ -544,18 +556,33 @@
             
             CGPoint touchLocation = [touch locationInView:self.view];
             float x = touchLocation.x;
+            float y = touchLocation.y;
+            
             CGRect frame = self.view.frame;
-            NSLog(@"Got x: %f", x);
+            NSLog(@"Got x: %f - y: %f", x, y);
+            float centerY = frame.size.height/2;
             
             if (x < (frame.size.width/2.0f - 50)) {
                 if (_total > 0) {
-                    [self doTrash];
+                    NSLog(@"Need move to album Left");
                     
                     _touchStarted = NO;
                 }
             } else if (x > (frame.size.width/2.0f + 50)) {
                 if (_total > 0) {
-                    [self doKeep];
+                    NSLog(@"Need move to album Right");
+                    
+                    _touchStarted = NO;
+                }
+            } else if (y < (centerY - 50)) {
+                if (_total > 0) {
+                    NSLog(@"Need move to album Top");
+                    
+                    _touchStarted = NO;
+                }
+            } else if (y < (centerY + 50)) {
+                if (_total > 0) {
+                    NSLog(@"Need move to album Bottom");
                     
                     _touchStarted = NO;
                 }
