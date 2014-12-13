@@ -63,6 +63,13 @@
 		6705BF901A39044000D4AC93 /* button_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 6705BF851A39044000D4AC93 /* button_select.png */; };
 		6705BF911A39044000D4AC93 /* button_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 6705BF861A39044000D4AC93 /* button_top.png */; };
 		6705BF921A39044000D4AC93 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6705BF871A39044000D4AC93 /* logo.png */; };
+		6717E6B91A3BB30C00A95316 /* button_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6B41A3BB30C00A95316 /* button_email.png */; };
+		6717E6BA1A3BB30C00A95316 /* button_fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6B51A3BB30C00A95316 /* button_fb.png */; };
+		6717E6BB1A3BB30C00A95316 /* button_inapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6B61A3BB30C00A95316 /* button_inapp.png */; };
+		6717E6BC1A3BB30C00A95316 /* button_noad.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6B71A3BB30C00A95316 /* button_noad.png */; };
+		6717E6BD1A3BB30C00A95316 /* button_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6B81A3BB30C00A95316 /* button_twitter.png */; };
+		6717E6C11A3BC47B00A95316 /* FinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717E6C01A3BC47B00A95316 /* FinishViewController.m */; };
+		6717E6C31A3BC5D400A95316 /* button_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6C21A3BC5D400A95316 /* button_star.png */; };
 		679D8B111A06DFBA00E26923 /* PHImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 679D8B101A06DFBA00E26923 /* PHImagePicker.m */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +159,14 @@
 		6705BF851A39044000D4AC93 /* button_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_select.png; sourceTree = "<group>"; };
 		6705BF861A39044000D4AC93 /* button_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_top.png; sourceTree = "<group>"; };
 		6705BF871A39044000D4AC93 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		6717E6B41A3BB30C00A95316 /* button_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_email.png; sourceTree = "<group>"; };
+		6717E6B51A3BB30C00A95316 /* button_fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_fb.png; sourceTree = "<group>"; };
+		6717E6B61A3BB30C00A95316 /* button_inapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_inapp.png; sourceTree = "<group>"; };
+		6717E6B71A3BB30C00A95316 /* button_noad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_noad.png; sourceTree = "<group>"; };
+		6717E6B81A3BB30C00A95316 /* button_twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_twitter.png; sourceTree = "<group>"; };
+		6717E6BF1A3BC47B00A95316 /* FinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishViewController.h; sourceTree = "<group>"; };
+		6717E6C01A3BC47B00A95316 /* FinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishViewController.m; sourceTree = "<group>"; };
+		6717E6C21A3BC5D400A95316 /* button_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_star.png; sourceTree = "<group>"; };
 		672181CB1A0072BF0096D62C /* Flic-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Flic-Prefix.pch"; sourceTree = "<group>"; };
 		679D8B0F1A06DFBA00E26923 /* PHImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHImagePicker.h; sourceTree = "<group>"; };
 		679D8B101A06DFBA00E26923 /* PHImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHImagePicker.m; sourceTree = "<group>"; };
@@ -394,6 +409,7 @@
 		37CDDBB419FE39DC00624D91 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6717E6BE1A3BC46D00A95316 /* FinishViewController */,
 				37ADBFD81A39DE23005137F2 /* AlbumPickerViewController */,
 				370BED8419FF2BE0000AFC87 /* AlbumViewController */,
 				370BED8719FF2BE0000AFC87 /* PhotoViewController */,
@@ -417,6 +433,12 @@
 		6705BF501A39035700D4AC93 /* Sorty */ = {
 			isa = PBXGroup;
 			children = (
+				6717E6C21A3BC5D400A95316 /* button_star.png */,
+				6717E6B41A3BB30C00A95316 /* button_email.png */,
+				6717E6B51A3BB30C00A95316 /* button_fb.png */,
+				6717E6B61A3BB30C00A95316 /* button_inapp.png */,
+				6717E6B71A3BB30C00A95316 /* button_noad.png */,
+				6717E6B81A3BB30C00A95316 /* button_twitter.png */,
 				37ADBFE91A39E805005137F2 /* add_new.png */,
 				6705BF7D1A39044000D4AC93 /* arrow_down.png */,
 				6705BF7E1A39044000D4AC93 /* arrow_left.png */,
@@ -431,6 +453,15 @@
 				6705BF871A39044000D4AC93 /* logo.png */,
 			);
 			path = Sorty;
+			sourceTree = "<group>";
+		};
+		6717E6BE1A3BC46D00A95316 /* FinishViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6717E6BF1A3BC47B00A95316 /* FinishViewController.h */,
+				6717E6C01A3BC47B00A95316 /* FinishViewController.m */,
+			);
+			path = FinishViewController;
 			sourceTree = "<group>";
 		};
 		679D8B0E1A06DFA300E26923 /* PHImagePicker */ = {
@@ -506,6 +537,7 @@
 				37D831B819FFAE9000C26C80 /* keep_bg.png in Resources */,
 				6705BF8C1A39044000D4AC93 /* button_bottom.png in Resources */,
 				6705BF911A39044000D4AC93 /* button_top.png in Resources */,
+				6717E6B91A3BB30C00A95316 /* button_email.png in Resources */,
 				6705BF881A39044000D4AC93 /* arrow_down.png in Resources */,
 				37CDDBAE19FE392600624D91 /* Overlay@2x.png in Resources */,
 				37CDDB5319FE004400624D91 /* LaunchScreen.xib in Resources */,
@@ -514,16 +546,21 @@
 				6705BF8E1A39044000D4AC93 /* button_left.png in Resources */,
 				37CDDBC419FE408B00624D91 /* select_frame.png in Resources */,
 				37B8A8351A01129A005575CF /* Icon.png in Resources */,
+				6717E6C31A3BC5D400A95316 /* button_star.png in Resources */,
 				37CDDBCB19FE461400624D91 /* back.png in Resources */,
+				6717E6BA1A3BB30C00A95316 /* button_fb.png in Resources */,
 				37AD9BDA19FE850000622AC6 /* SVProgressHUD.bundle in Resources */,
 				37ADBFEA1A39E805005137F2 /* add_new.png in Resources */,
 				6705BF901A39044000D4AC93 /* button_select.png in Resources */,
 				6705BF8F1A39044000D4AC93 /* button_right.png in Resources */,
+				6717E6BC1A3BB30C00A95316 /* button_noad.png in Resources */,
 				6705BF8B1A39044000D4AC93 /* arrow_up.png in Resources */,
+				6717E6BD1A3BB30C00A95316 /* button_twitter.png in Resources */,
 				6705BF891A39044000D4AC93 /* arrow_left.png in Resources */,
 				37CDDBA619FE392600624D91 /* ELCAlbumPickerController.xib in Resources */,
 				37D831AF19FF475800C26C80 /* TrashCollectionViewCell.xib in Resources */,
 				37CDDBA819FE392600624D91 /* ELCAssetPicker.xib in Resources */,
+				6717E6BB1A3BB30C00A95316 /* button_inapp.png in Resources */,
 				37CDDBAC19FE392600624D91 /* Overlay.png in Resources */,
 				6705BF8D1A39044000D4AC93 /* button_done.png in Resources */,
 				37CDDBAA19FE392600624D91 /* ELCAssetTablePicker.xib in Resources */,
@@ -542,6 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				370BED9419FF2BE0000AFC87 /* StartViewController.m in Sources */,
+				6717E6C11A3BC47B00A95316 /* FinishViewController.m in Sources */,
 				679D8B111A06DFBA00E26923 /* PHImagePicker.m in Sources */,
 				379F64E319FF417200B4555C /* TrashViewController.m in Sources */,
 				37D831AD19FF475800C26C80 /* TrashCollectionViewCell.m in Sources */,

@@ -14,6 +14,7 @@
 #define kTypeKeep  1
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 #define kImageHeight 300
+#define kStart 70
 
 @interface PhotoViewController ()
 
@@ -112,7 +113,7 @@
 {
     _total = (int) _imageData.count;
     
-    int start = 90;
+    int start = kStart;
     int xStart = 40;
     int imgHeight = kImageHeight;
     if (!IS_IPHONE_5) {
@@ -325,7 +326,7 @@
 
 - (void) animationImage
 {
-    int start = 90;
+    int start = kStart;
     int xStart = 40;
     
     for (int i = 0;i < _imageDisplay.count;i++) {

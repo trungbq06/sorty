@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 #import "PHImagePicker.h"
+#import "FPPopoverController.h"
 
-@interface StartViewController : UIViewController
+@interface StartViewController : UIViewController <FPPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnSelect;
 @property (nonatomic, retain) IBOutlet UILabel *bottomText;
