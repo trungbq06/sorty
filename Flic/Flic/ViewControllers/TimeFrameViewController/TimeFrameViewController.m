@@ -11,6 +11,7 @@
 #import "AlbumViewController.h"
 #import "SVProgressHUD.h"
 #import "PhotoViewController.h"
+#import "SelectDateViewController.h"
 
 @interface TimeFrameViewController ()
 
@@ -39,7 +40,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -63,8 +64,10 @@
     } else if (indexPath.row == 2) {
         cell.textLabel.text = @"Last Year";
     } else if (indexPath.row == 3) {
-        cell.textLabel.text = @"Select Album";
+        cell.textLabel.text = @"Specific Date";
     } else if (indexPath.row == 4) {
+        cell.textLabel.text = @"Select Album";
+    } else if (indexPath.row == 5) {
         cell.textLabel.text = @"Camera Roll";
     }
     
@@ -80,10 +83,18 @@
     } else if (indexPath.row == 2) {
         [self selectWithTime:@"year"];
     } else if (indexPath.row == 3) {
-        [self selectAlbums];
+        [self selectDate];
     } else if (indexPath.row == 4) {
+        [self selectAlbums];
+    } else if (indexPath.row == 5) {
         [self selectCameraRoll];
     }
+}
+
+- (void) selectDate {
+    SelectDateViewController *dateController = [[SelectDateViewController alloc] initWithNibName:@"SelectDateViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:dateController animated:YES];
 }
 
 - (void) selectWithTime:(NSString*) timeRange

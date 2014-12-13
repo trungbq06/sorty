@@ -99,8 +99,24 @@
     [SVProgressHUD dismiss];
     
     return result;
+}
+
+- (NSMutableArray *)selectByTimeRange:(NSDate*) startDate endDate: (NSDate*) endDate
+{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
     
+    PHFetchResult *items = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];
+    [items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        PHAsset *asset = (PHAsset*) obj;
+        NSDate *assetDate = asset.creationDate;
+        if ([assetDate compare:endDate] == NSOrderedDescending && [assetDate compare:startDate] == NSOrderedAscending) {
+            [result addObject:obj];
+        }
+    }];
     
+    [SVProgressHUD dismiss];
+    
+    return result;
 }
 
 @end

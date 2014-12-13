@@ -16,5 +16,6 @@
 - (NSMutableArray*) selectAlbums;
 - (NSMutableArray*) selectByAlbums:(PHAssetCollection*) index;
 - (NSMutableArray*) selectByTime:(NSString*) timeRange;
+- (NSMutableArray *)selectByTimeRange:(NSDate*) startDate endDate: (NSDate*) endDate;
 
 @end

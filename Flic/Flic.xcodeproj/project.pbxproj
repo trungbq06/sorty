@@ -71,6 +71,8 @@
 		6717E6C11A3BC47B00A95316 /* FinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717E6C01A3BC47B00A95316 /* FinishViewController.m */; };
 		6717E6C31A3BC5D400A95316 /* button_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6C21A3BC5D400A95316 /* button_star.png */; };
 		679D8B111A06DFBA00E26923 /* PHImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 679D8B101A06DFBA00E26923 /* PHImagePicker.m */; };
+		67F9ADE81A3C5FDC00A462D1 /* SelectDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9ADE61A3C5FDC00A462D1 /* SelectDateViewController.m */; };
+		67F9ADE91A3C5FDC00A462D1 /* SelectDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F9ADE71A3C5FDC00A462D1 /* SelectDateViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +172,9 @@
 		672181CB1A0072BF0096D62C /* Flic-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Flic-Prefix.pch"; sourceTree = "<group>"; };
 		679D8B0F1A06DFBA00E26923 /* PHImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHImagePicker.h; sourceTree = "<group>"; };
 		679D8B101A06DFBA00E26923 /* PHImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHImagePicker.m; sourceTree = "<group>"; };
+		67F9ADE51A3C5FDC00A462D1 /* SelectDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDateViewController.h; sourceTree = "<group>"; };
+		67F9ADE61A3C5FDC00A462D1 /* SelectDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDateViewController.m; sourceTree = "<group>"; };
+		67F9ADE71A3C5FDC00A462D1 /* SelectDateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDateViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,6 +414,7 @@
 		37CDDBB419FE39DC00624D91 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				678028911A3C5EB500AE996B /* SelectDateViewController */,
 				6717E6BE1A3BC46D00A95316 /* FinishViewController */,
 				37ADBFD81A39DE23005137F2 /* AlbumPickerViewController */,
 				370BED8419FF2BE0000AFC87 /* AlbumViewController */,
@@ -462,6 +468,16 @@
 				6717E6C01A3BC47B00A95316 /* FinishViewController.m */,
 			);
 			path = FinishViewController;
+			sourceTree = "<group>";
+		};
+		678028911A3C5EB500AE996B /* SelectDateViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67F9ADE51A3C5FDC00A462D1 /* SelectDateViewController.h */,
+				67F9ADE61A3C5FDC00A462D1 /* SelectDateViewController.m */,
+				67F9ADE71A3C5FDC00A462D1 /* SelectDateViewController.xib */,
+			);
+			path = SelectDateViewController;
 			sourceTree = "<group>";
 		};
 		679D8B0E1A06DFA300E26923 /* PHImagePicker */ = {
@@ -533,6 +549,7 @@
 			files = (
 				6705BF8A1A39044000D4AC93 /* arrow_right.png in Resources */,
 				37CDDB4E19FE004400624D91 /* Main.storyboard in Resources */,
+				67F9ADE91A3C5FDC00A462D1 /* SelectDateViewController.xib in Resources */,
 				37CDDB6E19FE28B700624D91 /* btn_keep.png in Resources */,
 				37D831B819FFAE9000C26C80 /* keep_bg.png in Resources */,
 				6705BF8C1A39044000D4AC93 /* button_bottom.png in Resources */,
@@ -596,6 +613,7 @@
 				37CDDB4519FE004400624D91 /* main.m in Sources */,
 				370BED9619FF2BE0000AFC87 /* TimeFrameViewController.m in Sources */,
 				37CDDBA019FE392600624D91 /* ELCConsole.m in Sources */,
+				67F9ADE81A3C5FDC00A462D1 /* SelectDateViewController.m in Sources */,
 				370BED9219FF2BE0000AFC87 /* PhotoViewController.m in Sources */,
 				370BED9019FF2BE0000AFC87 /* AlbumViewController.m in Sources */,
 				37ADBFE41A39E655005137F2 /* FPPopoverController.m in Sources */,
