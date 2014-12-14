@@ -42,6 +42,27 @@
     return result;
 }
 
+- (PHCollection *)getAlbum:(NSString *)albumName
+{
+    PHFetchResult *collection = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
+    
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
+    [collection enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [result addObject:obj];
+    }];
+    
+    [SVProgressHUD dismiss];
+    
+    for (PHCollection *collect in result) {
+        if ([collect.localizedTitle isEqualToString:albumName]) {
+            return collect;
+        }
+    }
+    
+    return nil;
+}
+
 - (NSMutableArray *)selectByAlbums:(PHAssetCollection*) collection
 {
     PHFetchOptions *allPhotosOptions = [PHFetchOptions new];

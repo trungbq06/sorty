@@ -7,6 +7,8 @@
 //
 
 #import "PhotoViewController.h"
+#import "NSUserDefaults+Reminder.h"
+#import "AppDelegate.h"
 #import "ImageHolder.h"
 
 #define kImageTag 100
@@ -60,6 +62,7 @@
     _badgeInfo.layer.cornerRadius = 8;
     _badgeInfo.layer.masksToBounds = YES;
     
+    _totalSortedImage = 0;
     _totalSize = 0;
     _totalTrash = 0;
     _totalKeep = 0;
@@ -77,7 +80,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restoreImageHolder:) name:kImageNotify object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateImageSize:) name:kUpdateSize object:nil];
     
+    [self transformText:_albumLeft transform:-M_PI_2];
+    [self transformText:_albumRight transform:M_PI_2];
+    [self formatLabel:_albumBottom];
+    [self formatLabel:_albumLeft];
+    [self formatLabel:_albumRight];
+    [self formatLabel:_albumTop];
+    
     [self initializeAlbum];
+}
+
+- (void) formatLabel:(UILabel*) label {
+    label.layer.cornerRadius = 10;
+    label.layer.borderWidth = 1;
+    label.layer.borderColor = [[UIColor whiteColor] CGColor];
+    label.backgroundColor = [UIColor clearColor];
 }
 
 - (void) transformText:(UILabel*) label transform: (float) angle {
@@ -88,30 +105,42 @@
 }
 
 - (void) initializeAlbum {
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    
     NSString *albumTop = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeTop];
-    _phAlbumTop = [[NSUserDefaults standardUserDefaults] objectForKey:kAlbumTop];
+    _phAlbumTop = appDelegate.phAlbumTop;
     
     if (albumTop) {
         _albumTop.text = albumTop;
     }
     NSString *albumRight = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeRight];
-    _phAlbumRight = [[NSUserDefaults standardUserDefaults] objectForKey:kAlbumRight];
+    _phAlbumRight = appDelegate.phAlbumRight;
     
     if (albumRight) {
         _albumRight.text = albumRight;
     }
     NSString *albumBottom = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeBottom];
-    _phAlbumBottom = [[NSUserDefaults standardUserDefaults] objectForKey:kAlbumBottom];
+    _phAlbumBottom = appDelegate.phAlbumBottom;
     
     if (albumBottom) {
         _albumBottom.text = albumBottom;
     }
     NSString *albumLeft = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeLeft];
-    _phAlbumLeft = [[NSUserDefaults standardUserDefaults] objectForKey:kAlbumLeft];
+    _phAlbumLeft = appDelegate.phAlbumLeft;
     
     if (albumLeft) {
         _albumLeft.text = albumLeft;
     }
+    
+    _phAlbums = [[NSMutableDictionary alloc] initWithCapacity:0];
+    if (_phAlbumTop)
+        [_phAlbums setObject:_phAlbumTop forKey:kTypeTop];
+    if (_phAlbumRight)
+        [_phAlbums setObject:_phAlbumRight forKey:kTypeRight];
+    if (_phAlbumBottom)
+        [_phAlbums setObject:_phAlbumBottom forKey:kTypeBottom];
+    if (_phAlbumLeft)
+        [_phAlbums setObject:_phAlbumLeft forKey:kTypeLeft];
 }
 
 - (void) dealloc {
@@ -155,6 +184,9 @@
 - (void) bringAlbumToFront {
     [self.view bringSubviewToFront:_albumRight];
     [self.view bringSubviewToFront:_albumLeft];
+    
+    [self.view bringSubviewToFront:_arrowLeft];
+    [self.view bringSubviewToFront:_arrowRight];
 }
 
 #pragma MARK - Photo Push back
@@ -382,61 +414,67 @@
 }
 
 #pragma mark - Move to one album
-- (void) addPhotoToAlbum:(NSString*) album {
-    [_btnUndo setEnabled:YES];
+- (void) addPhotoToAlbum:(PHCollection*) album withTouchView:(ImageHolder*) touchView{
+    if (album) {
+        [_btnUndo setEnabled:YES];
+        
+        _total = (int) _imageData.count;
+        
+        ImageHolder *imgHolder = [_imageDisplay objectAtIndex:_imageDisplay.count - 1];
+        imgHolder.isKeep = YES;
+        PHAsset *phAsset = imgHolder.phAsset;
+        
+        // Add this photo to album
+        [self addPhoto:phAsset toCollection:album];
+        
+        [_imageDisplay removeObjectAtIndex:_imageDisplay.count - 1];
+        [_undoImage addObject:imgHolder];
+        [imgHolder removeFromSuperview];
+        [_imageData removeObject:phAsset];
+        _total = (int) _imageData.count;
+        
+        if ([_undoImage count] > 3)
+            [_undoImage removeObjectsInRange:NSMakeRange(0, [_undoImage count] - 3)];
+        
+        [self revealNewImageHolder];
+    } else {
+        // Put to normal position
+        touchView.center = _normalPoint;
+        
+        touchView.trashBg.hidden = YES;
+        touchView.keepBg.hidden = YES;
+    }
+}
+
+- (void) addPhoto:(PHAsset*) photo toCollection:(PHCollection*) collection {
+    _totalSortedImage++;
     
-    _totalKeep++;
-    _lastIsTrash = false;
+    PHAssetCollection *assetCollection = (PHAssetCollection *)collection;
     
-    _total = (int) _imageData.count;
-    
-    ImageHolder *imgHolder = [_imageDisplay objectAtIndex:_imageDisplay.count - 1];
-    imgHolder.isKeep = YES;
-    PHAsset *toKeep = imgHolder.phAsset;
-    
-    [_imageDisplay removeObjectAtIndex:_imageDisplay.count - 1];
-    [_undoImage addObject:imgHolder];
-    [imgHolder removeFromSuperview];
-    [_imageData removeObject:toKeep];
-    _total = (int) _imageData.count;
-    
-    if ([_undoImage count] > 3)
-        [_undoImage removeObjectsInRange:NSMakeRange(0, [_undoImage count] - 3)];
-    
-    [self revealNewImageHolder];
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        PHAssetCollectionChangeRequest *changeRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+        [changeRequest addAssets:[NSArray arrayWithObject:photo]];
+        
+        NSLog(@"Adding asset to %@...", changeRequest.title);
+    } completionHandler:^(BOOL success, NSError *error){
+        
+    }];
 }
 
 - (IBAction)undoClick:(id)sender {
     if ([_undoImage count] > 0) {
         ImageHolder *imgHolder = [_undoImage lastObject];
-        if (imgHolder.isTrash) {
-            --_totalTrash;
-            _badgeInfo.text = [NSString stringWithFormat:@"%d", _totalTrash];
-            if (_totalTrash == 0) {
-                _badgeInfo.hidden = YES;
-            }
-            
-            PHAsset *asset = imgHolder.phAsset;
-            [_imageData addObject:asset];
-            
-            [self reArrangeImgHolder:kTypeTrash];
-            [_undoImage removeLastObject];
-            [_trashImage removeLastObject];
-            
-            if ([_undoImage count] == 0)
-                [_btnUndo setEnabled:NO];
-        } else if (imgHolder.isKeep) {
-            _totalKeep--;
-            
-            PHAsset *asset = imgHolder.phAsset;
-            [_imageData addObject:asset];
-            
-            [self reArrangeImgHolder:kTypeKeep];
-            [_undoImage removeLastObject];
-            
-            if ([_undoImage count] == 0)
-                [_btnUndo setEnabled:NO];
-        }
+        --_totalSortedImage;
+        
+        PHAsset *asset = imgHolder.phAsset;
+        [_imageData addObject:asset];
+        
+        [self reArrangeImgHolder:kTypeTrash];
+        [_undoImage removeLastObject];
+        [_trashImage removeLastObject];
+        
+        if ([_undoImage count] == 0)
+            [_btnUndo setEnabled:NO];
     }
 }
 
@@ -457,10 +495,10 @@
 
 - (void) showTrash
 {
-    TrashViewController *trashController = [self.storyboard instantiateViewControllerWithIdentifier:@"TrashViewController"];
-    [trashController setImageData:_trashImage];
+    FinishViewController *finishController = [self.storyboard instantiateViewControllerWithIdentifier:@"FinishViewController"];
+    finishController.totalImage = _totalSortedImage;
     
-    [self presentViewController:trashController animated:YES completion:^{
+    [self presentViewController:finishController animated:YES completion:^{
         
     }];
 }
@@ -515,27 +553,27 @@
             if (x < (frame.size.width/2.0f - 20)) {
                 NSLog(@"Moving Left");
                 
-                touchView.trashBg.hidden = NO;
-                touchView.trashBg.alpha = ratioX;
-                touchView.keepBg.hidden = YES;
+//                touchView.trashBg.hidden = NO;
+//                touchView.trashBg.alpha = ratioX;
+//                touchView.keepBg.hidden = YES;
             } else if (x > (frame.size.width/2.0f + 20)) {
                 NSLog(@"Moving Right");
                 
-                touchView.keepBg.hidden = NO;
-                touchView.keepBg.alpha = ratioX;
-                touchView.trashBg.hidden = YES;
+//                touchView.keepBg.hidden = NO;
+//                touchView.keepBg.alpha = ratioX;
+//                touchView.trashBg.hidden = YES;
             } else if (y < (centerY - 20)) {
                 NSLog(@"Moving Top");
                 
-                touchView.trashBg.hidden = NO;
-                touchView.trashBg.alpha = ratioY;
-                touchView.keepBg.hidden = YES;
+//                touchView.trashBg.hidden = NO;
+//                touchView.trashBg.alpha = ratioY;
+//                touchView.keepBg.hidden = YES;
             } else if (y > (centerY + 20)) {
                 NSLog(@"Moving Bottom");
                 
-                touchView.keepBg.hidden = NO;
-                touchView.keepBg.alpha = ratioY;
-                touchView.trashBg.hidden = YES;
+//                touchView.keepBg.hidden = NO;
+//                touchView.keepBg.alpha = ratioY;
+//                touchView.trashBg.hidden = YES;
             } else {
                 touchView.trashBg.hidden = YES;
                 touchView.keepBg.hidden = YES;
@@ -564,26 +602,37 @@
             
             if (x < (frame.size.width/2.0f - 50)) {
                 if (_total > 0) {
+                    _lastPosition = kTypeLeft;
                     NSLog(@"Need move to album Left");
+                    
+                    [self addPhotoToAlbum:[_phAlbums objectForKey:_lastPosition] withTouchView: touchView];
                     
                     _touchStarted = NO;
                 }
             } else if (x > (frame.size.width/2.0f + 50)) {
                 if (_total > 0) {
+                    _lastPosition = kTypeRight;
                     NSLog(@"Need move to album Right");
+                    
+                    [self addPhotoToAlbum:[_phAlbums objectForKey:_lastPosition] withTouchView: touchView];
                     
                     _touchStarted = NO;
                 }
             } else if (y < (centerY - 50)) {
                 if (_total > 0) {
+                    _lastPosition = kTypeTop;
                     NSLog(@"Need move to album Top");
+                    
+                    [self addPhotoToAlbum:[_phAlbums objectForKey:_lastPosition] withTouchView: touchView];
                     
                     _touchStarted = NO;
                 }
-            } else if (y < (centerY + 50)) {
+            } else if (y > (centerY + 50)) {
                 if (_total > 0) {
+                    _lastPosition = kTypeBottom;
                     NSLog(@"Need move to album Bottom");
                     
+                    [self addPhotoToAlbum:[_phAlbums objectForKey:_lastPosition] withTouchView: touchView];
                     _touchStarted = NO;
                 }
             } else {

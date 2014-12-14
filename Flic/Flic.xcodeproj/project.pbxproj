@@ -63,6 +63,7 @@
 		6705BF901A39044000D4AC93 /* button_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 6705BF851A39044000D4AC93 /* button_select.png */; };
 		6705BF911A39044000D4AC93 /* button_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 6705BF861A39044000D4AC93 /* button_top.png */; };
 		6705BF921A39044000D4AC93 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6705BF871A39044000D4AC93 /* logo.png */; };
+		6708C7611A3CC7DE001583B0 /* NSUserDefaults+Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = 6708C7601A3CC7DE001583B0 /* NSUserDefaults+Reminder.m */; };
 		6717E6B91A3BB30C00A95316 /* button_email.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6B41A3BB30C00A95316 /* button_email.png */; };
 		6717E6BA1A3BB30C00A95316 /* button_fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6B51A3BB30C00A95316 /* button_fb.png */; };
 		6717E6BB1A3BB30C00A95316 /* button_inapp.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6B61A3BB30C00A95316 /* button_inapp.png */; };
@@ -70,6 +71,8 @@
 		6717E6BD1A3BB30C00A95316 /* button_twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6B81A3BB30C00A95316 /* button_twitter.png */; };
 		6717E6C11A3BC47B00A95316 /* FinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6717E6C01A3BC47B00A95316 /* FinishViewController.m */; };
 		6717E6C31A3BC5D400A95316 /* button_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6C21A3BC5D400A95316 /* button_star.png */; };
+		673B30A51A3D079F00F5E8F6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673B30A41A3D079F00F5E8F6 /* StoreKit.framework */; };
+		673B30A71A3D07CE00F5E8F6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673B30A61A3D07CE00F5E8F6 /* MessageUI.framework */; };
 		679D8B111A06DFBA00E26923 /* PHImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 679D8B101A06DFBA00E26923 /* PHImagePicker.m */; };
 		67F9ADE81A3C5FDC00A462D1 /* SelectDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9ADE61A3C5FDC00A462D1 /* SelectDateViewController.m */; };
 		67F9ADE91A3C5FDC00A462D1 /* SelectDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F9ADE71A3C5FDC00A462D1 /* SelectDateViewController.xib */; };
@@ -161,6 +164,8 @@
 		6705BF851A39044000D4AC93 /* button_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_select.png; sourceTree = "<group>"; };
 		6705BF861A39044000D4AC93 /* button_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_top.png; sourceTree = "<group>"; };
 		6705BF871A39044000D4AC93 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		6708C75F1A3CC7DE001583B0 /* NSUserDefaults+Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Reminder.h"; sourceTree = "<group>"; };
+		6708C7601A3CC7DE001583B0 /* NSUserDefaults+Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Reminder.m"; sourceTree = "<group>"; };
 		6717E6B41A3BB30C00A95316 /* button_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_email.png; sourceTree = "<group>"; };
 		6717E6B51A3BB30C00A95316 /* button_fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_fb.png; sourceTree = "<group>"; };
 		6717E6B61A3BB30C00A95316 /* button_inapp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_inapp.png; sourceTree = "<group>"; };
@@ -170,6 +175,8 @@
 		6717E6C01A3BC47B00A95316 /* FinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishViewController.m; sourceTree = "<group>"; };
 		6717E6C21A3BC5D400A95316 /* button_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_star.png; sourceTree = "<group>"; };
 		672181CB1A0072BF0096D62C /* Flic-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Flic-Prefix.pch"; sourceTree = "<group>"; };
+		673B30A41A3D079F00F5E8F6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		673B30A61A3D07CE00F5E8F6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		679D8B0F1A06DFBA00E26923 /* PHImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHImagePicker.h; sourceTree = "<group>"; };
 		679D8B101A06DFBA00E26923 /* PHImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHImagePicker.m; sourceTree = "<group>"; };
 		67F9ADE51A3C5FDC00A462D1 /* SelectDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDateViewController.h; sourceTree = "<group>"; };
@@ -182,6 +189,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				673B30A71A3D07CE00F5E8F6 /* MessageUI.framework in Frameworks */,
+				673B30A51A3D079F00F5E8F6 /* StoreKit.framework in Frameworks */,
 				37D831B519FF870C00C26C80 /* Photos.framework in Frameworks */,
 				37CDDBC219FE3B7E00624D91 /* MobileCoreServices.framework in Frameworks */,
 				37CDDBC019FE3B7800624D91 /* CoreGraphics.framework in Frameworks */,
@@ -285,6 +294,8 @@
 		37CDDB3619FE004400624D91 = {
 			isa = PBXGroup;
 			children = (
+				673B30A61A3D07CE00F5E8F6 /* MessageUI.framework */,
+				673B30A41A3D079F00F5E8F6 /* StoreKit.framework */,
 				37D831B419FF870C00C26C80 /* Photos.framework */,
 				37CDDBC119FE3B7E00624D91 /* MobileCoreServices.framework */,
 				37CDDBBF19FE3B7800624D91 /* CoreGraphics.framework */,
@@ -370,6 +381,8 @@
 				679D8B0E1A06DFA300E26923 /* PHImagePicker */,
 				37AD9BD519FE850000622AC6 /* SVProgressHUD */,
 				37CDDB8019FE392600624D91 /* ELCImagePicker */,
+				6708C75F1A3CC7DE001583B0 /* NSUserDefaults+Reminder.h */,
+				6708C7601A3CC7DE001583B0 /* NSUserDefaults+Reminder.m */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -615,6 +628,7 @@
 				37CDDBA019FE392600624D91 /* ELCConsole.m in Sources */,
 				67F9ADE81A3C5FDC00A462D1 /* SelectDateViewController.m in Sources */,
 				370BED9219FF2BE0000AFC87 /* PhotoViewController.m in Sources */,
+				6708C7611A3CC7DE001583B0 /* NSUserDefaults+Reminder.m in Sources */,
 				370BED9019FF2BE0000AFC87 /* AlbumViewController.m in Sources */,
 				37ADBFE41A39E655005137F2 /* FPPopoverController.m in Sources */,
 				37ADBFDB1A39DE46005137F2 /* AlbumPickerViewController.m in Sources */,

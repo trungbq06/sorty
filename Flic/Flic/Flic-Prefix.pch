@@ -33,4 +33,5 @@
 #define kAlbumRight   @"album_right"
 #define kAlbumLeft    @"album_left"
 #define kAlbumBottom  @"album_bottom"
-
+#define kTotalAlbum   @"albums"
+#define kPurchased    @"purchased"

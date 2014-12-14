@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ImageHolder.h"
 #import "PHImagePicker.h"
-#import "TrashViewController.h"
+#import "FinishViewController.h"
 
 #define kPhotoPushbackNotify @"push_back_notify"
 
@@ -44,6 +44,8 @@
 @property (assign)          float            totalSize;
 @property (weak, nonatomic) IBOutlet UIButton *btnUndo;
 
+@property (weak, nonatomic) IBOutlet UIImageView *arrowRight;
+@property (weak, nonatomic) IBOutlet UIImageView *arrowLeft;
 @property (weak, nonatomic) IBOutlet UILabel *albumTop;
 @property (weak, nonatomic) IBOutlet UILabel *albumRight;
 @property (weak, nonatomic) IBOutlet UILabel *albumBottom;
@@ -53,6 +55,11 @@
 @property (nonatomic, retain) PHCollection   *phAlbumRight;
 @property (nonatomic, retain) PHCollection   *phAlbumLeft;
 @property (nonatomic, retain) PHCollection   *phAlbumBottom;
+
+@property (nonatomic, retain) NSString       *lastPosition;
+@property (nonatomic, retain) NSMutableDictionary *phAlbums;
+
+@property (nonatomic, assign) int           totalSortedImage;
 
 - (IBAction)trashClick:(id)sender;
 - (IBAction)keepClick:(id)sender;

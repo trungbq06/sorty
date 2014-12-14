@@ -47,7 +47,7 @@
     _btnTop.titleLabel.textAlignment = NSTextAlignmentCenter;
     _btnBottom.titleLabel.textAlignment = NSTextAlignmentCenter;
     
-    [self transformText:_labelLeft transform: M_PI_2];
+    [self transformText:_labelLeft transform: -M_PI_2];
     [self transformText:_labelRight transform: M_PI_2];
     _labelTop.textAlignment = NSTextAlignmentCenter;
     _labelBottom.textAlignment = NSTextAlignmentCenter;
@@ -119,6 +119,29 @@
 
 - (IBAction)btnSelectClick:(id)sender
 {
+    // Check if user select 2 albums
+    NSString *textTop = _labelTop.text;
+    NSString *textRight = _labelRight.text;
+    NSString *textBottom = _labelBottom.text;
+    NSString *textLeft = _labelLeft.text;
+    
+    int totalAlbum = 0;
+    if (![textBottom isEqualToString:@"Create or Select Albums"])
+        totalAlbum++;
+    if (![textRight isEqualToString:@"Create or Select Albums"])
+        totalAlbum++;
+    if (![textTop isEqualToString:@"Create or Select Albums"])
+        totalAlbum++;
+    if (![textLeft isEqualToString:@"Create or Select Albums"])
+        totalAlbum++;
+    
+    if (totalAlbum < 2) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops" message:@"Please Create or Select at least 2 albums to start" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return;
+    }
+    
     TimeFrameViewController *timeFrame = [self.storyboard instantiateViewControllerWithIdentifier:@"TimeFrameViewController"];
     
     [self.navigationController pushViewController:timeFrame animated:YES];

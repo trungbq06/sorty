@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -18,18 +19,97 @@
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="gne-D2-hoN">
                                     <rect key="frame" x="0.0" y="129" width="320" height="150"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="gne-D2-hoN" secondAttribute="height" multiplier="32:15" id="s9f-Nt-4rC"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="s9f-Nt-4rC"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="constraints">
+                                            <include reference="s9f-Nt-4rC"/>
+                                        </mask>
+                                    </variation>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.96212121210000001" green="0.59564393940000004" blue="0.092803030300000006" alpha="1" colorSpace="deviceRGB"/>
+                            <constraints>
+                                <constraint firstItem="gne-D2-hoN" firstAttribute="leading" secondItem="ot2-v3-9AT" secondAttribute="leading" id="R8a-ek-WnR"/>
+                                <constraint firstAttribute="trailing" secondItem="gne-D2-hoN" secondAttribute="trailing" id="evF-Gf-gNn"/>
+                                <constraint firstItem="gne-D2-hoN" firstAttribute="top" secondItem="ot2-v3-9AT" secondAttribute="top" constant="129" id="jvr-tm-CjO"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="R8a-ek-WnR"/>
+                                    <exclude reference="evF-Gf-gNn"/>
+                                    <exclude reference="jvr-tm-CjO"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="R8a-ek-WnR"/>
+                                    <include reference="evF-Gf-gNn"/>
+                                    <include reference="jvr-tm-CjO"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ot2-v3-9AT" firstAttribute="leading" secondItem="ZSP-CU-FCv" secondAttribute="leading" id="H0Z-Na-J8V"/>
+                        <constraint firstAttribute="trailing" secondItem="ot2-v3-9AT" secondAttribute="trailing" id="Rg6-lz-zjS"/>
+                        <constraint firstAttribute="centerX" secondItem="ot2-v3-9AT" secondAttribute="centerX" id="djU-yN-xE0"/>
+                        <constraint firstItem="ot2-v3-9AT" firstAttribute="top" secondItem="ZSP-CU-FCv" secondAttribute="top" id="ir5-Rk-w60"/>
+                        <constraint firstAttribute="bottom" secondItem="ot2-v3-9AT" secondAttribute="bottom" id="s9a-jK-zYb"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="H0Z-Na-J8V"/>
+                            <exclude reference="Rg6-lz-zjS"/>
+                            <exclude reference="djU-yN-xE0"/>
+                            <exclude reference="ir5-Rk-w60"/>
+                            <exclude reference="s9a-jK-zYb"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="H0Z-Na-J8V"/>
+                            <include reference="Rg6-lz-zjS"/>
+                            <include reference="djU-yN-xE0"/>
+                            <include reference="ir5-Rk-w60"/>
+                            <include reference="s9a-jK-zYb"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ZSP-CU-FCv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ga2-g0-VTF"/>
+                <constraint firstItem="ZSP-CU-FCv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bLl-dO-Rvn"/>
+                <constraint firstAttribute="trailing" secondItem="ZSP-CU-FCv" secondAttribute="trailing" id="gG9-I4-7Ph"/>
+                <constraint firstAttribute="bottom" secondItem="ZSP-CU-FCv" secondAttribute="bottom" id="lgz-EH-nMc"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="249" y="289"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Ga2-g0-VTF"/>
+                    <exclude reference="bLl-dO-Rvn"/>
+                    <exclude reference="gG9-I4-7Ph"/>
+                    <exclude reference="lgz-EH-nMc"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="Ga2-g0-VTF"/>
+                    <include reference="bLl-dO-Rvn"/>
+                    <include reference="gG9-I4-7Ph"/>
+                    <include reference="lgz-EH-nMc"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="42" y="273"/>
         </view>
     </objects>
     <resources>

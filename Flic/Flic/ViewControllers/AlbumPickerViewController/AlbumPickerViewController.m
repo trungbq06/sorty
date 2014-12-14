@@ -7,7 +7,9 @@
 //
 
 #import "AlbumPickerViewController.h"
+#import "NSUserDefaults+Reminder.h"
 #import <Photos/Photos.h>
+#import "AppDelegate.h"
 
 @interface AlbumPickerViewController ()
 
@@ -71,21 +73,23 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     NSString *title = collection.localizedTitle;
     NSLog(@"Album %@", title);
     
+    AppDelegate *appDelegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
+    
     if ([_albumType isEqualToString:kTypeTop]) {
         [[NSUserDefaults standardUserDefaults] setObject:title forKey:kTypeTop];
-        [[NSUserDefaults standardUserDefaults] setObject:collection forKey:kAlbumTop];
+        appDelegate.phAlbumTop = collection;
     }
     if ([_albumType isEqualToString:kTypeRight]) {
         [[NSUserDefaults standardUserDefaults] setObject:title forKey:kTypeRight];
-        [[NSUserDefaults standardUserDefaults] setObject:collection forKey:kAlbumRight];
+        appDelegate.phAlbumRight = collection;
     }
     if ([_albumType isEqualToString:kTypeLeft]) {
         [[NSUserDefaults standardUserDefaults] setObject:title forKey:kTypeLeft];
-        [[NSUserDefaults standardUserDefaults] setObject:collection forKey:kAlbumLeft];
+        appDelegate.phAlbumLeft = collection;
     }
     if ([_albumType isEqualToString:kTypeBottom]) {
         [[NSUserDefaults standardUserDefaults] setObject:title forKey:kTypeBottom];
-        [[NSUserDefaults standardUserDefaults] setObject:collection forKey:kAlbumBottom];
+        appDelegate.phAlbumBottom = collection;
     }
 }
 

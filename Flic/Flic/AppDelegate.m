@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "PHImagePicker.h"
 
 @interface AppDelegate ()
 
@@ -33,7 +34,41 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     }
     
+    [self initializeAlbum];
+    
     return YES;
+}
+
+- (void) initializeAlbum {
+    int totalAlbum = 0;
+    
+    PHImagePicker *phPicker = [[PHImagePicker alloc] init];
+    NSString *albumTop = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeTop];
+    
+    if (albumTop) {
+        _phAlbumTop = [phPicker getAlbum:albumTop];
+        totalAlbum++;
+    }
+    NSString *albumRight = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeRight];
+    
+    if (albumRight) {
+        _phAlbumRight = [phPicker getAlbum:albumRight];
+        totalAlbum++;
+    }
+    NSString *albumBottom = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeBottom];
+    
+    if (albumBottom) {
+        _phAlbumBottom = [phPicker getAlbum:albumBottom];
+        totalAlbum++;
+    }
+    NSString *albumLeft = [[NSUserDefaults standardUserDefaults] objectForKey:kTypeLeft];
+    
+    if (albumLeft) {
+        _phAlbumLeft = [phPicker getAlbum:albumLeft];
+        totalAlbum++;
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:totalAlbum forKey:kTotalAlbum];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
