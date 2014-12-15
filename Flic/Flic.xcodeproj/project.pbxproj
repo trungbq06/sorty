@@ -73,6 +73,8 @@
 		6717E6C31A3BC5D400A95316 /* button_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 6717E6C21A3BC5D400A95316 /* button_star.png */; };
 		673B30A51A3D079F00F5E8F6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673B30A41A3D079F00F5E8F6 /* StoreKit.framework */; };
 		673B30A71A3D07CE00F5E8F6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 673B30A61A3D07CE00F5E8F6 /* MessageUI.framework */; };
+		674F61BB1A3E5736003120D1 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 674F61B91A3E5736003120D1 /* libGoogleAdMobAds.a */; };
+		674F61BC1A3E5736003120D1 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 674F61BA1A3E5736003120D1 /* README.txt */; };
 		679D8B111A06DFBA00E26923 /* PHImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 679D8B101A06DFBA00E26923 /* PHImagePicker.m */; };
 		67F9ADE81A3C5FDC00A462D1 /* SelectDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67F9ADE61A3C5FDC00A462D1 /* SelectDateViewController.m */; };
 		67F9ADE91A3C5FDC00A462D1 /* SelectDateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F9ADE71A3C5FDC00A462D1 /* SelectDateViewController.xib */; };
@@ -177,6 +179,20 @@
 		672181CB1A0072BF0096D62C /* Flic-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Flic-Prefix.pch"; sourceTree = "<group>"; };
 		673B30A41A3D079F00F5E8F6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		673B30A61A3D07CE00F5E8F6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		674F61AD1A3E5736003120D1 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		674F61AE1A3E5736003120D1 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		674F61AF1A3E5736003120D1 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		674F61B01A3E5736003120D1 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		674F61B11A3E5736003120D1 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		674F61B21A3E5736003120D1 /* GADInAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchase.h; sourceTree = "<group>"; };
+		674F61B31A3E5736003120D1 /* GADInAppPurchaseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchaseDelegate.h; sourceTree = "<group>"; };
+		674F61B41A3E5736003120D1 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		674F61B51A3E5736003120D1 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		674F61B61A3E5736003120D1 /* GADModules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADModules.h; sourceTree = "<group>"; };
+		674F61B71A3E5736003120D1 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		674F61B81A3E5736003120D1 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		674F61B91A3E5736003120D1 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		674F61BA1A3E5736003120D1 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		679D8B0F1A06DFBA00E26923 /* PHImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHImagePicker.h; sourceTree = "<group>"; };
 		679D8B101A06DFBA00E26923 /* PHImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHImagePicker.m; sourceTree = "<group>"; };
 		67F9ADE51A3C5FDC00A462D1 /* SelectDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDateViewController.h; sourceTree = "<group>"; };
@@ -193,6 +209,7 @@
 				673B30A51A3D079F00F5E8F6 /* StoreKit.framework in Frameworks */,
 				37D831B519FF870C00C26C80 /* Photos.framework in Frameworks */,
 				37CDDBC219FE3B7E00624D91 /* MobileCoreServices.framework in Frameworks */,
+				674F61BB1A3E5736003120D1 /* libGoogleAdMobAds.a in Frameworks */,
 				37CDDBC019FE3B7800624D91 /* CoreGraphics.framework in Frameworks */,
 				37CDDBBE19FE3B5900624D91 /* AssetsLibrary.framework in Frameworks */,
 			);
@@ -377,6 +394,7 @@
 		37CDDB7219FE354400624D91 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				674F61AC1A3E5736003120D1 /* GoogleMobileAds */,
 				37ADBFDC1A39E655005137F2 /* FPPopover */,
 				679D8B0E1A06DFA300E26923 /* PHImagePicker */,
 				37AD9BD519FE850000622AC6 /* SVProgressHUD */,
@@ -483,6 +501,27 @@
 			path = FinishViewController;
 			sourceTree = "<group>";
 		};
+		674F61AC1A3E5736003120D1 /* GoogleMobileAds */ = {
+			isa = PBXGroup;
+			children = (
+				674F61AD1A3E5736003120D1 /* GADAdMobExtras.h */,
+				674F61AE1A3E5736003120D1 /* GADAdNetworkExtras.h */,
+				674F61AF1A3E5736003120D1 /* GADAdSize.h */,
+				674F61B01A3E5736003120D1 /* GADBannerView.h */,
+				674F61B11A3E5736003120D1 /* GADBannerViewDelegate.h */,
+				674F61B21A3E5736003120D1 /* GADInAppPurchase.h */,
+				674F61B31A3E5736003120D1 /* GADInAppPurchaseDelegate.h */,
+				674F61B41A3E5736003120D1 /* GADInterstitial.h */,
+				674F61B51A3E5736003120D1 /* GADInterstitialDelegate.h */,
+				674F61B61A3E5736003120D1 /* GADModules.h */,
+				674F61B71A3E5736003120D1 /* GADRequest.h */,
+				674F61B81A3E5736003120D1 /* GADRequestError.h */,
+				674F61B91A3E5736003120D1 /* libGoogleAdMobAds.a */,
+				674F61BA1A3E5736003120D1 /* README.txt */,
+			);
+			path = GoogleMobileAds;
+			sourceTree = "<group>";
+		};
 		678028911A3C5EB500AE996B /* SelectDateViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,6 +615,7 @@
 				6705BF8E1A39044000D4AC93 /* button_left.png in Resources */,
 				37CDDBC419FE408B00624D91 /* select_frame.png in Resources */,
 				37B8A8351A01129A005575CF /* Icon.png in Resources */,
+				674F61BC1A3E5736003120D1 /* README.txt in Resources */,
 				6717E6C31A3BC5D400A95316 /* button_star.png in Resources */,
 				37CDDBCB19FE461400624D91 /* back.png in Resources */,
 				6717E6BA1A3BB30C00A95316 /* button_fb.png in Resources */,
@@ -745,8 +785,13 @@
 				INFOPLIST_FILE = Flic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flic/Libs/GoogleMobileAds",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Slide;
-				PROVISIONING_PROFILE = "52934ca2-f19a-4e22-90a8-049957cb40cb";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -761,8 +806,13 @@
 				INFOPLIST_FILE = Flic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flic/Libs/GoogleMobileAds",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Slide;
-				PROVISIONING_PROFILE = "52934ca2-f19a-4e22-90a8-049957cb40cb";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

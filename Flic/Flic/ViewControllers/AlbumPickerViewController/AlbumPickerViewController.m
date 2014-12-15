@@ -24,14 +24,21 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     
     _phImagePicker = [[PHImagePicker alloc] init];
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, 200, 230) style:UITableViewStylePlain];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
+//    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, 200, 230) style:UITableViewStylePlain];
+//    _tableView.delegate = self;
+//    _tableView.dataSource = self;
     [_tableView setSeparatorInset:UIEdgeInsetsZero];
     
-    [self.view addSubview:_tableView];
+//    [self.view addSubview:_tableView];
     
     [_tableView reloadData];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    _tableView.frame = CGRectMake(0, 44, 200, 230);
 }
 
 - (void)didReceiveMemoryWarning {

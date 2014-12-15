@@ -9,15 +9,29 @@
 #import <UIKit/UIKit.h>
 #import <Photos/Photos.h>
 #import "PHImagePicker.h"
+#import <iAd/iAd.h>
+#import "GADBannerView.h"
+#import "GADInterstitial.h"
 #import "FPPopoverController.h"
 
-@interface StartViewController : UIViewController <FPPopoverControllerDelegate>
+@interface StartViewController : UIViewController <FPPopoverControllerDelegate, GADBannerViewDelegate, GADInterstitialDelegate, ADBannerViewDelegate>
+{
+    //AdMob
+    GADBannerView *bannerView_;
+    GADInterstitial *interstitial_;
+    
+    ADBannerView *adView;
+    
+    BOOL bannerIsVisible;
+    BOOL bannerShown;
+}
 
-@property (weak, nonatomic) IBOutlet UIButton *btnSelect;
-@property (nonatomic, retain) IBOutlet UILabel *bottomText;
+@property (nonatomic, retain) ADBannerView          *adView;
+@property (nonatomic, assign) BOOL              noAds;
+@property (weak, nonatomic) IBOutlet UIButton   *btnSelect;
+@property (nonatomic, retain) IBOutlet UILabel  *bottomText;
 
-
-@property (nonatomic, retain) PHImagePicker  *phImagePicker;
+@property (nonatomic, retain) PHImagePicker     *phImagePicker;
 
 - (IBAction)btnSelectClick:(id)sender;
 

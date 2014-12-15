@@ -16,7 +16,7 @@
 #define kTypeKeep  1
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 #define kImageHeight 300
-#define kStart 70
+#define kStart 65
 
 @interface PhotoViewController ()
 
@@ -93,8 +93,10 @@
 - (void) formatLabel:(UILabel*) label {
     label.layer.cornerRadius = 10;
     label.layer.borderWidth = 1;
+    label.clipsToBounds = YES;
     label.layer.borderColor = [[UIColor whiteColor] CGColor];
-    label.backgroundColor = [UIColor clearColor];
+    label.backgroundColor = [UIColor whiteColor];
+    label.textColor = [UIColor colorWithRed:245.0f/255.0f green:152.0f/255.0f blue:24.0f/255.0f alpha:1];
 }
 
 - (void) transformText:(UILabel*) label transform: (float) angle {
@@ -165,7 +167,7 @@
     
     for (int i = 0; i < 3;i++) {
         if (i < _total && [_imageDisplay count] < 3 && _total > [_imageDisplay count]) {
-            ImageHolder *imgHolder1 = [[ImageHolder alloc] initWithFrame:CGRectMake(xStart - i*10, start + i*10, self.view.frame.size.width - 80 + i*20, imgHeight)];
+            ImageHolder *imgHolder1 = [[ImageHolder alloc] initWithFrame:CGRectMake(xStart - i*10, start + i*5, self.view.frame.size.width - 80 + i*20, imgHeight)];
             UIImageView *imgView1 = [[UIImageView alloc] init];
             [imgHolder1 setImageView:imgView1];
             [imgHolder1 setInfo:@""];
@@ -279,7 +281,7 @@
 //        }
     } else if ([_imageData count] == 0) {
         // Show Trash
-        [self showTrash];
+        [self showFinish];
     }
     
     [self bringAlbumToFront];
@@ -323,6 +325,8 @@
     [_imageDisplay addObject:newImgHolder];
     
     [self animationImage];
+    
+    [self bringAlbumToFront];
 }
 
 - (void) animationImage
@@ -480,7 +484,7 @@
 
 - (IBAction)emptyTrashClick:(id)sender {
     if ([_trashImage count] > 0) {
-        [self showTrash];
+        [self showFinish];
     } else {
         UIAlertController *alertFinish = [UIAlertController alertControllerWithTitle:@"You need to add some pictures to your trash first ..." message:@"" preferredStyle:UIAlertControllerStyleAlert];
         [alertFinish addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
@@ -493,7 +497,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void) showTrash
+- (IBAction)btnDoneClick:(id)sender
+{
+    [self showFinish];
+}
+
+- (void) showFinish
 {
     FinishViewController *finishController = [self.storyboard instantiateViewControllerWithIdentifier:@"FinishViewController"];
     finishController.totalImage = _totalSortedImage;

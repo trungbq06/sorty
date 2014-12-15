@@ -118,7 +118,7 @@
         
         _touchView = [[FPTouchView alloc] initWithFrame:self.view.bounds];
         _touchView.backgroundColor = [UIColor clearColor];
-        _touchView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//        _touchView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _touchView.clipsToBounds = NO;
         [self.view addSubview:_touchView];
         

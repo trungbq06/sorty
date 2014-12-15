@@ -13,9 +13,9 @@
 @interface AlbumPickerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, retain) NSMutableArray *imageData;
-@property (nonatomic, retain) UITableView    *tableView;
 @property (nonatomic, retain) PHImagePicker  *phImagePicker;
 @property (nonatomic, assign) NSString        *albumType;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)btnAddClick:(id)sender;
 

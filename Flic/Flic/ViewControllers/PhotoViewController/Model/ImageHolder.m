@@ -20,9 +20,10 @@
         
         _imageManager = [PHImageManager defaultManager];
         
-        _infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.frame.size.height - 50, self.frame.size.width, 40)];
-        _infoLabel.font = [UIFont systemFontOfSize:20];
+        _infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, self.frame.size.height - 30, self.frame.size.width, 30)];
+        _infoLabel.font = [UIFont fontWithName:@"Futura" size:15];
         _infoLabel.textColor = [UIColor whiteColor];
+        _infoLabel.alpha = 0.6;
         
         [self addSubview:_infoLabel];
         

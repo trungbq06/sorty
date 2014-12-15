@@ -11,7 +11,7 @@
 #import <MessageUI/MessageUI.h>
 #import <iAd/iAd.h>
 
-@interface FinishViewController : UIViewController <ADBannerViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
+@interface FinishViewController : UIViewController <ADBannerViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lbTotalSorted;
 @property (nonatomic, retain) ADBannerView          *adView;

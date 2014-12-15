@@ -66,6 +66,7 @@
 - (IBAction)undoClick:(id)sender;
 - (IBAction)emptyTrashClick:(id)sender;
 - (IBAction)backClick:(id)sender;
+- (IBAction)btnDoneClick:(id)sender;
 
 @end
 
