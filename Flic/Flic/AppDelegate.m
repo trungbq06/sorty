@@ -34,9 +34,20 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     }
     
+    // Reset album
+    [self resetAlbum];
+    
     [self initializeAlbum];
     
     return YES;
+}
+
+- (void) resetAlbum
+{
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeTop];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeRight];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeLeft];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeBottom];
 }
 
 - (void) initializeAlbum {

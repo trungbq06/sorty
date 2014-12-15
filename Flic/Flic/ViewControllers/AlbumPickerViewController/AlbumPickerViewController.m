@@ -98,6 +98,8 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
         [[NSUserDefaults standardUserDefaults] setObject:title forKey:kTypeBottom];
         appDelegate.phAlbumBottom = collection;
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"FPDismissPopover" object:nil];
 }
 
 - (IBAction)btnAddClick:(id)sender {

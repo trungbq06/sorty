@@ -130,7 +130,7 @@
     [items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         PHAsset *asset = (PHAsset*) obj;
         NSDate *assetDate = asset.creationDate;
-        if ([assetDate compare:endDate] == NSOrderedDescending && [assetDate compare:startDate] == NSOrderedAscending) {
+        if ([assetDate compare:endDate] == NSOrderedAscending && [assetDate compare:startDate] == NSOrderedDescending) {
             [result addObject:obj];
         }
     }];

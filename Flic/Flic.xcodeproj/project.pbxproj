@@ -108,7 +108,7 @@
 		37ADBFE31A39E655005137F2 /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		37ADBFE91A39E805005137F2 /* add_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add_new.png; sourceTree = "<group>"; };
 		37B8A8341A01129A005575CF /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		37CDDB3F19FE004400624D91 /* Slide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slide.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CDDB3F19FE004400624D91 /* Sorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37CDDB4319FE004400624D91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37CDDB4419FE004400624D91 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		37CDDB4619FE004400624D91 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 		37CDDB4019FE004400624D91 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				37CDDB3F19FE004400624D91 /* Slide.app */,
+				37CDDB3F19FE004400624D91 /* Sorty.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -558,7 +558,7 @@
 			);
 			name = Flic;
 			productName = Flic;
-			productReference = 37CDDB3F19FE004400624D91 /* Slide.app */;
+			productReference = 37CDDB3F19FE004400624D91 /* Sorty.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -778,8 +778,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shahzaib Khan (6T2TF5WUUD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shahzaib Khan (6T2TF5WUUD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flic/Flic-Prefix.pch";
 				INFOPLIST_FILE = Flic/Info.plist;
@@ -790,8 +790,8 @@
 					"$(PROJECT_DIR)/Flic/Libs/GoogleMobileAds",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Slide;
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = Sorty;
+				PROVISIONING_PROFILE = "955269ac-984b-4df0-8002-22e2575f7d0d";
 			};
 			name = Debug;
 		};
@@ -799,8 +799,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shahzaib Khan (6T2TF5WUUD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shahzaib Khan (6T2TF5WUUD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flic/Flic-Prefix.pch";
 				INFOPLIST_FILE = Flic/Info.plist;
@@ -811,8 +811,8 @@
 					"$(PROJECT_DIR)/Flic/Libs/GoogleMobileAds",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Slide;
-				PROVISIONING_PROFILE = "";
+				PRODUCT_NAME = Sorty;
+				PROVISIONING_PROFILE = "955269ac-984b-4df0-8002-22e2575f7d0d";
 			};
 			name = Release;
 		};

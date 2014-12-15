@@ -76,6 +76,17 @@
     CGRect frame = _btnSelect.frame;
     [_btnSelect setFrame:CGRectMake(frame.origin.x, self.view.frame.size.height - frame.size.height - 60, frame.size.width, frame.size.height)];
     [_bottomText setFrame:CGRectMake(_bottomText.frame.origin.x, self.view.frame.size.height - _bottomText.frame.size.height - 20, _bottomText.frame.size.width, _bottomText.frame.size.height)];
+    
+    [self resetAlbum];
+}
+
+#pragma mark - RESET ALBUM
+- (void) resetAlbum
+{
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeTop];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeRight];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeLeft];
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeBottom];
 }
 
 #pragma mark - LOAD BANNER

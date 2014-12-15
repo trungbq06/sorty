@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _phImagePicker = [[PHImagePicker alloc] init];
+    
     _startDate.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     _endDate.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     _startDate.layer.borderWidth = 1;
@@ -26,6 +28,14 @@
     _btnSelect.layer.borderWidth = 1;
     
     _btnSelect.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    _startDate.leftView = paddingView;
+    _startDate.leftViewMode = UITextFieldViewModeAlways;
+    
+    UIView *paddingView2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    _endDate.leftView = paddingView2;
+    _endDate.leftViewMode = UITextFieldViewModeAlways;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,7 +73,7 @@
     NSString *dateEnd = _endDate.text;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY-MM-dd"];
+    [formatter setDateFormat:@"MM-dd-YYYY"];
     
     NSDate *_dateStart = [formatter dateFromString:dateStart];
     NSDate *_dateEnd = [formatter dateFromString:dateEnd];
@@ -82,7 +92,8 @@
         
         [self presentViewController:alertFinish animated:YES completion:nil];
     } else {
-        PhotoViewController *photoController = [self.storyboard instantiateViewControllerWithIdentifier:@"PhotoViewController"];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        PhotoViewController *photoController = [storyboard instantiateViewControllerWithIdentifier:@"PhotoViewController"];
         NSMutableArray *infoArray = [[NSMutableArray alloc] initWithArray:info];
         photoController.imageData = infoArray;
         
@@ -101,7 +112,7 @@
     [_datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY-MM-dd"];
+    [formatter setDateFormat:@"MM-dd-YYYY"];
     NSDate *currDate = [NSDate date];
     
     NSString *txtDate = _currTextField.text;
@@ -120,7 +131,7 @@
     NSDate * dateSelected = ((UIDatePicker *) sender).date;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY-MM-dd"];
+    [formatter setDateFormat:@"MM-dd-YYYY"];
     
     NSString *strDate = [formatter stringFromDate:dateSelected];
     _currTextField.text = strDate;
