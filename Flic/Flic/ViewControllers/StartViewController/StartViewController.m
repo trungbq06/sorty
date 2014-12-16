@@ -12,7 +12,6 @@
 
 @interface StartViewController ()
 
-@property (nonatomic, assign) BOOL              isPurchased;
 @property (weak, nonatomic) IBOutlet UIButton *btnTop;
 @property (weak, nonatomic) IBOutlet UIButton *btnRight;
 @property (weak, nonatomic) IBOutlet UIButton *btnBottom;
@@ -38,17 +37,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _isPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:kPurchased];
-    CGRect appframe = [[UIScreen mainScreen] bounds];
-    
-    if (!_isPurchased) {
-//        _adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, appframe.size.height - 50, appframe.size.width, 50)];
-//        _adView.delegate = self;
-//        _adView.alpha = 0;
-    }
-    
-    [self loadIntersial];
     
     _phImagePicker = [[PHImagePicker alloc] init];
     
@@ -87,100 +75,6 @@
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeRight];
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeLeft];
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kTypeBottom];
-}
-
-#pragma mark - LOAD BANNER
-- (void)interstitialDidReceiveAd:(GADInterstitial *)ad
-{
-    [interstitial_ presentFromRootViewController:self];
-    
-    bannerShown = TRUE;
-}
-
-- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
-{
-    [self performSelectorOnMainThread:@selector(loadBanner) withObject:nil waitUntilDone:NO];
-}
-
-- (void) loadIntersial
-{
-    if (!_noAds) {
-        if (!bannerShown) {
-            interstitial_ = [[GADInterstitial alloc] init];
-            interstitial_.adUnitID = MY_BANNER_INTERSITIAL_UNIT_ID;
-            [interstitial_ setDelegate:self];
-            [interstitial_ loadRequest:[GADRequest request]];
-        }
-    }
-}
-
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
-    if (!bannerIsVisible)
-    {
-        [bannerView_ removeFromSuperview];
-        [UIView beginAnimations:@"animateAdBannerOn" context:NULL];
-        // banner is invisible now and moved out of the screen on 50 px
-        CGRect frame = banner.frame;
-        [banner setFrame:CGRectMake(frame.origin.x, 0, frame.size.width, frame.size.height)];
-        
-        [UIView commitAnimations];
-        bannerIsVisible = YES;
-        [adView setHidden:!bannerIsVisible];
-    }
-}
-
-//when any problems occured
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
-    if (bannerIsVisible)
-    {
-        [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
-        [UIView commitAnimations];
-        bannerIsVisible = NO;
-        [adView setHidden:!bannerIsVisible];
-        
-        [self performSelectorOnMainThread:@selector(loadBanner) withObject:nil waitUntilDone:NO];
-    }
-}
-
-- (void) loadBanner {
-    if (!_noAds) {
-        CGRect appframe= [[UIScreen mainScreen] applicationFrame];
-
-        bannerView_ = [[GADBannerView alloc]
-                       initWithFrame:CGRectMake(0.0,
-                                                appframe.size.height - 50,
-                                                GAD_SIZE_320x50.width,
-                                                GAD_SIZE_320x50.height)];
-        
-        // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
-        bannerView_.adUnitID = MY_BANNER_UNIT_ID;
-        
-        // Let the runtime know which UIViewController to restore after taking
-        // the user wherever the ad goes and add it to the view hierarchy.
-        bannerView_.rootViewController = self;
-        bannerView_.delegate = self;
-        [self.view addSubview:bannerView_];
-        
-        // Initiate a generic request to load it with an ad.
-        [bannerView_ loadRequest:[self request]];
-    }
-}
-
-#pragma mark GADRequest generation
-
-- (GADRequest *)request {
-    GADRequest *request = [GADRequest request];
-    
-    // Make the request for a test ad. Put in an identifier for the simulator as well as any devices
-    // you want to receive test ads.
-    //    request.testDevices = @[
-    //                            // TODO: Add your device/simulator test identifiers here. Your device identifier is printed to
-    //                            // the console when the app is launched.
-    //                            GAD_SIMULATOR_ID
-    //                            ];
-    return request;
 }
 
 - (void) transformText:(UILabel*) label transform: (float) angle {

@@ -9,12 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "ImageHolder.h"
 #import "PHImagePicker.h"
+#import <iAd/iAd.h>
+#import "GADBannerView.h"
+#import "GADInterstitial.h"
 #import "FinishViewController.h"
 
 #define kPhotoPushbackNotify @"push_back_notify"
 
-@interface PhotoViewController : UIViewController
+@interface PhotoViewController : UIViewController <GADBannerViewDelegate, GADInterstitialDelegate, ADBannerViewDelegate>
+{
+    //AdMob
+    GADBannerView *bannerView_;
+    GADInterstitial *interstitial_;
+    
+    BOOL bannerIsVisible;
+    BOOL bannerShown;
+}
 
+@property (nonatomic, retain) ADBannerView          *adView;
 @property (nonatomic, retain) NSMutableArray *imageData;
 
 @property (nonatomic, retain) PHImagePicker  *phImagePicker;

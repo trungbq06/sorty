@@ -20,6 +20,9 @@
 
 @interface PhotoViewController ()
 
+@property (nonatomic, assign) BOOL              isPurchased;
+@property (nonatomic, assign) BOOL              noAds;
+
 @end
 
 @implementation PhotoViewController
@@ -31,6 +34,19 @@
     _imageManager = [PHImageManager defaultManager];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoPushback:) name:kPhotoPushbackNotify object:nil];
+    
+    _isPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:kPurchased];
+    CGRect appframe = [[UIScreen mainScreen] bounds];
+    
+    if (!_isPurchased) {
+        _adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, appframe.size.height - 50, appframe.size.width, 50)];
+        _adView.delegate = self;
+        _adView.hidden = TRUE;
+    }
+    
+    [self.view addSubview:_adView];
+    
+    [self loadIntersial];
     
     /*
     NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
@@ -90,6 +106,104 @@
     [self initializeAlbum];
 }
 
+#pragma mark - LOAD BANNER
+- (void)interstitialDidReceiveAd:(GADInterstitial *)ad
+{
+    [interstitial_ presentFromRootViewController:self];
+    
+    bannerShown = TRUE;
+    
+    [self loadBanner];
+}
+
+- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
+{
+    [self performSelectorOnMainThread:@selector(loadBanner) withObject:nil waitUntilDone:NO];
+}
+
+- (void) loadIntersial
+{
+    if (!_noAds) {
+        if (!bannerShown) {
+            interstitial_ = [[GADInterstitial alloc] init];
+            interstitial_.adUnitID = MY_BANNER_INTERSITIAL_UNIT_ID;
+            [interstitial_ setDelegate:self];
+            [interstitial_ loadRequest:[GADRequest request]];
+        }
+    }
+}
+
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner
+{
+    if (!bannerIsVisible)
+    {
+        [bannerView_ removeFromSuperview];
+        
+        bannerIsVisible = YES;
+        [_adView setHidden:!bannerIsVisible];
+        
+        [self.view bringSubviewToFront:_adView];
+    }
+}
+
+//when any problems occured
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
+{
+    if (bannerIsVisible)
+    {
+        [UIView beginAnimations:@"animateAdBannerOff" context:NULL];
+        
+        bannerIsVisible = NO;
+        [_adView setHidden:!bannerIsVisible];
+        
+        [UIView commitAnimations];
+    }
+    
+    [self performSelectorOnMainThread:@selector(loadBanner) withObject:nil waitUntilDone:NO];
+}
+
+- (void) loadBanner {
+    CGRect appframe= [[UIScreen mainScreen] applicationFrame];
+    
+    bannerView_ = [[GADBannerView alloc]
+                   initWithFrame:CGRectMake(0.0,
+                                            appframe.size.height - 50,
+                                            (appframe.size.width - GAD_SIZE_320x50.width) / 2,
+                                            GAD_SIZE_320x50.height)];
+    
+    // Specify the ad's "unit identifier." This is your AdMob Publisher ID.
+    bannerView_.adUnitID = MY_BANNER_UNIT_ID;
+    
+    // Let the runtime know which UIViewController to restore after taking
+    // the user wherever the ad goes and add it to the view hierarchy.
+    bannerView_.rootViewController = self;
+    bannerView_.delegate = self;
+    
+    GADRequest *request = [GADRequest request];
+    // Requests test ads on devices you specify. Your test device ID is printed to the console when
+    // an ad request is made.
+    request.testDevices = @[ GAD_SIMULATOR_ID ];
+    [bannerView_ loadRequest:request];
+    
+    [self.view addSubview:bannerView_];
+    [self.view bringSubviewToFront:bannerView_];
+}
+
+#pragma mark GADRequest generation
+- (GADRequest *)request {
+    GADRequest *request = [GADRequest request];
+    
+    // Make the request for a test ad. Put in an identifier for the simulator as well as any devices
+    // you want to receive test ads.
+//        request.testDevices = @[
+//                                // TODO: Add your device/simulator test identifiers here. Your device identifier is printed to
+//                                // the console when the app is launched.
+//                                GAD_SIMULATOR_ID
+//                                ];
+    return request;
+}
+// END LOAD BANNER
+
 - (void) formatLabel:(UILabel*) label {
     label.layer.cornerRadius = 10;
     label.layer.borderWidth = 1;
@@ -147,6 +261,9 @@
 
 - (void) dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [bannerView_ removeFromSuperview];
+    [_adView removeFromSuperview];
 }
 
 - (IBAction)imgClick:(id)sender

@@ -274,11 +274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "436696579.230645"
+            timestampString = "440403929.953878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
             landmarkName = "-reArrangeImgHolder:"
             landmarkType = "5">
          </BreakpointContent>
@@ -306,12 +306,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "436696579.230645"
+            timestampString = "440403929.953878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "-showImages"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "-photoPushback:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -370,11 +370,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "436452901.809413"
+            timestampString = "440403291.13241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>

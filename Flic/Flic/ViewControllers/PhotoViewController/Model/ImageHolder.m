@@ -285,17 +285,10 @@
         imgHeight = 200;
     }
     
-    CGSize imageSize = _imgFull.image.size;
-    CGRect frame = [[UIScreen mainScreen] bounds];
-    
     [_imageView setFrame:CGRectMake(0, 0, self.frame.size.width, imgHeight)];
     _originImage = _imageView.image;
     
     _imageView.image = [self imageByScalingAndCroppingForImage:_imageView.image withSize:CGSizeMake(self.frame.size.width * 2, imgHeight * 2)];
-    
-    float y = (frame.size.height - imageSize.height) / 2;
-    
-//    _imgFull.frame = CGRectMake(0, y, imageSize.width, imageSize.height);
 }
 
 - (void)setImageView:(UIImageView *)imageView

@@ -236,6 +236,13 @@
     _contentView.relativeOrigin = [_parentView convertPoint:fromPoint toView:_contentView];
 
     [self.view removeFromSuperview];
+    
+    _window = [[[UIApplication sharedApplication] delegate] window];
+    _parentView = _window.rootViewController.view;
+    [_parentView addSubview:self.view];
+    [_viewController viewDidAppear:YES];
+    
+    /*
     NSArray *windows = [UIApplication sharedApplication].windows;
     if(windows.count > 0)
     {
@@ -254,7 +261,7 @@
     {
         [self dismissPopoverAnimated:NO];
     }
-    
+    */
     
     
     [self setupView];

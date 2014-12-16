@@ -181,31 +181,6 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-#pragma mark - Message Delegate
-- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
-{
-    switch (result)
-    {
-        case MFMailComposeResultCancelled:
-            NSLog(@"Mail cancelled");
-            break;
-        case MFMailComposeResultSaved:
-            NSLog(@"Mail saved");
-            break;
-        case MFMailComposeResultSent:
-            NSLog(@"Mail sent");
-            break;
-        case MFMailComposeResultFailed:
-            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
-            break;
-        default:
-            break;
-    }
-    
-    // Close the Mail Interface
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
 #pragma mark - RETRIEVE PRODUCT INFORMATION
 // Custom method
 - (void)validateProductIdentifiers:(NSArray *)productIdentifiers
