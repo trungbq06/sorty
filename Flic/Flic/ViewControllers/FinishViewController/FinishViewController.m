@@ -10,6 +10,7 @@
 #import "SVProgressHUD.h"
 #import <Social/Social.h>
 #import "StartViewController.h"
+#import <MessageUI/MessageUI.h>
 
 @interface FinishViewController () {
     NSArray *_products;
@@ -101,18 +102,22 @@
 - (IBAction)btnTwitterClick:(id)sender {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
+        NSString *message = [NSString stringWithFormat:@"Wow, I sorted out %d #iPhone Photos in few minutes only using #Sorty App by @AppDeveloper99 *%@*", _totalImage, kReviewURL];
+        
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
-        [tweetSheet setInitialText:@"Best photos app that you ever experience !"];
+        [tweetSheet setInitialText:message];
         [self presentViewController:tweetSheet animated:YES completion:nil];
     }
 }
 
 - (IBAction)btnFacebookClick:(id)sender {
+    NSString *message = [NSString stringWithFormat:@"Wow, I sorted out %d #iPhone Photos in few minutes only using #Sorty App by @AppDeveloper99 *%@*", _totalImage, kReviewURL];
+    
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         
-        [controller setInitialText:@"Best photos app that you ever experience !"];
+        [controller setInitialText:message];
         [self presentViewController:controller animated:YES completion:Nil];
     }
 }
@@ -138,7 +143,42 @@
 }
 
 - (IBAction)btnFeedbackClick:(id)sender {
+    MFMailComposeViewController *mViewController = [[MFMailComposeViewController alloc] init];
+    mViewController.mailComposeDelegate = self;
+    [mViewController setSubject:@"Sorty Feedback"];
+    [mViewController setMessageBody:@"" isHTML:NO];
+    [mViewController setToRecipients:@[@"appdeveloper99@gmail.com"]];
     
+    [self presentViewController:mViewController animated:TRUE completion:nil];
+}
+
+- (IBAction)reviewClick:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kReviewURL]];
+}
+
+#pragma mark - Message Delegate
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark - Message Delegate

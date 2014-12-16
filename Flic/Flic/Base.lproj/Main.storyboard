@@ -1130,7 +1130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="71l-KA-jlx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="586.5" y="-216"/>
+            <point key="canvasLocation" x="147" y="-252"/>
         </scene>
         <!--Album View Controller-->
         <scene sceneID="kbV-hS-5N0">
@@ -1672,6 +1672,18 @@
                                     <action selector="btnFacebookClick:" destination="XDD-KO-7GC" eventType="touchUpInside" id="hwz-Y9-h5f"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2BV-f1-Uef">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="105" y="258" width="189" height="52"/>
+                                </variation>
+                                <connections>
+                                    <action selector="reviewClick:" destination="XDD-KO-7GC" eventType="touchUpInside" id="87Z-XZ-Oxe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96212121210000001" green="0.59564393940000004" blue="0.092803030300000006" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
@@ -1711,6 +1723,9 @@
                             <constraint firstItem="dSC-kX-55A" firstAttribute="trailing" secondItem="zZa-gr-DXw" secondAttribute="trailing" id="yEG-f3-Ky1"/>
                         </constraints>
                         <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="2BV-f1-Uef"/>
+                            </mask>
                             <mask key="constraints">
                                 <exclude reference="icO-UZ-Lar"/>
                                 <exclude reference="pXt-mX-Msg"/>
@@ -1749,6 +1764,9 @@
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="2BV-f1-Uef"/>
+                            </mask>
                             <mask key="constraints">
                                 <include reference="icO-UZ-Lar"/>
                                 <include reference="pXt-mX-Msg"/>
@@ -1794,7 +1812,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P5d-Y4-hTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304.5" y="-216"/>
+            <point key="canvasLocation" x="-13.5" y="-216"/>
         </scene>
     </scenes>
     <resources>

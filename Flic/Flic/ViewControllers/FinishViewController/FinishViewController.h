@@ -11,7 +11,7 @@
 #import <MessageUI/MessageUI.h>
 #import <iAd/iAd.h>
 
-@interface FinishViewController : UIViewController <ADBannerViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, MFMailComposeViewControllerDelegate>
+@interface FinishViewController : UIViewController <ADBannerViewDelegate, MFMailComposeViewControllerDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lbTotalSorted;
 @property (nonatomic, retain) ADBannerView          *adView;
@@ -25,5 +25,6 @@
 - (IBAction)btnAdsClick:(id)sender;
 - (IBAction)btnRestartClick:(id)sender;
 - (IBAction)btnFeedbackClick:(id)sender;
+- (IBAction)reviewClick:(id)sender;
 
 @end
