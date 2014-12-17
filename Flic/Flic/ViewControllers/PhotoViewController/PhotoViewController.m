@@ -46,7 +46,8 @@
     
     [self.view addSubview:_adView];
     
-    [self loadIntersial];
+//    [self loadIntersial];
+    [self performSelectorOnMainThread:@selector(loadBanner) withObject:nil waitUntilDone:NO];
     
     /*
     NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
@@ -88,22 +89,32 @@
     _infoDisplay = [[NSMutableArray alloc] initWithCapacity:0];
     _trashImage = [[NSMutableArray alloc] initWithCapacity:0];
     _undoImage = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    [self initImageHolder];
-    
-    [self showImages];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restoreImageHolder:) name:kImageNotify object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateImageSize:) name:kUpdateSize object:nil];
+    _undoPosition = [[NSMutableArray alloc] initWithCapacity:0];
     
     [self transformText:_albumLeft transform:-M_PI_2];
     [self transformText:_albumRight transform:M_PI_2];
+    [self transformText:_badgeLeft transform:-M_PI_2];
+    [self transformText:_badgeRight transform:M_PI_2];
+    
     [self formatLabel:_albumBottom];
     [self formatLabel:_albumLeft];
     [self formatLabel:_albumRight];
     [self formatLabel:_albumTop];
     
     [self initializeAlbum];
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    _imageHeight = _albumBottom.frame.origin.y - _albumTop.frame.origin.y - 48;
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:_imageHeight] forKey:kHeight];
+    
+    [self initImageHolder];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restoreImageHolder:) name:kImageNotify object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateImageSize:) name:kUpdateSize object:nil];
 }
 
 #pragma mark - LOAD BANNER
@@ -248,15 +259,48 @@
         _albumLeft.text = albumLeft;
     }
     
+    _badgeTop.text = @"0";
+    _badgeRight.text = @"0";
+    _badgeBottom.text = @"0";
+    _badgeLeft.text = @"0";
+    _badgeTop.hidden = YES;
+    _badgeRight.hidden = YES;
+    _badgeBottom.hidden = YES;
+    _badgeLeft.hidden = YES;
+    
     _phAlbums = [[NSMutableDictionary alloc] initWithCapacity:0];
-    if (_phAlbumTop)
+    _phBadges = [[NSMutableDictionary alloc] initWithCapacity:0];
+    if (_phAlbumTop) {
         [_phAlbums setObject:_phAlbumTop forKey:kTypeTop];
-    if (_phAlbumRight)
+        [_phBadges setObject:_badgeTop forKey:kTypeTop];
+        _badgeTop.hidden = NO;
+    }
+    if (_phAlbumRight) {
         [_phAlbums setObject:_phAlbumRight forKey:kTypeRight];
-    if (_phAlbumBottom)
+        [_phBadges setObject:_badgeRight forKey:kTypeRight];
+        _badgeRight.hidden = NO;
+    }
+    if (_phAlbumBottom) {
         [_phAlbums setObject:_phAlbumBottom forKey:kTypeBottom];
-    if (_phAlbumLeft)
+        [_phBadges setObject:_badgeBottom forKey:kTypeBottom];
+        _badgeBottom.hidden = NO;
+    }
+    if (_phAlbumLeft) {
         [_phAlbums setObject:_phAlbumLeft forKey:kTypeLeft];
+        [_phBadges setObject:_badgeLeft forKey:kTypeLeft];
+        _badgeLeft.hidden = NO;
+    }
+    
+    [self styleBadge:_badgeTop];
+    [self styleBadge:_badgeLeft];
+    [self styleBadge:_badgeRight];
+    [self styleBadge:_badgeBottom];
+}
+
+- (void) styleBadge:(UILabel*) badgeLabel {
+    badgeLabel.layer.cornerRadius = 5;
+    badgeLabel.layer.masksToBounds = YES;
+    badgeLabel.backgroundColor = [UIColor greenColor];
 }
 
 - (void) dealloc {
@@ -301,11 +345,15 @@
 }
 
 - (void) bringAlbumToFront {
-    [self.view bringSubviewToFront:_albumRight];
-    [self.view bringSubviewToFront:_albumLeft];
+    [self.view bringSubviewToFront:_leftAlbumView];
+    [self.view bringSubviewToFront:_rightAlbumView];
     
-    [self.view bringSubviewToFront:_arrowLeft];
-    [self.view bringSubviewToFront:_arrowRight];
+    [self.view bringSubviewToFront:_albumTop];
+    [self.view bringSubviewToFront:_albumBottom];
+    [self.view bringSubviewToFront:_arrowTop];
+    [self.view bringSubviewToFront:_arrowBottom];
+    [self.view bringSubviewToFront:_badgeTop];
+    [self.view bringSubviewToFront:_badgeBottom];
 }
 
 #pragma MARK - Photo Push back
@@ -535,6 +583,20 @@
 }
 
 #pragma mark - Move to one album
+- (void) increaseBadge:(UILabel*) label {
+    int current = [label.text intValue];
+    current++;
+    
+    label.text = [NSString stringWithFormat:@"%d", current];
+}
+
+- (void) decreaseBadge:(UILabel*) label {
+    int current = [label.text intValue];
+    current--;
+    
+    label.text = [NSString stringWithFormat:@"%d", current];
+}
+
 - (void) addPhotoToAlbum:(PHCollection*) album withTouchView:(ImageHolder*) touchView{
     if (album) {
         [_btnUndo setEnabled:YES];
@@ -550,12 +612,15 @@
         
         [_imageDisplay removeObjectAtIndex:_imageDisplay.count - 1];
         [_undoImage addObject:imgHolder];
+        [_undoPosition addObject:_lastPosition];
         [imgHolder removeFromSuperview];
         [_imageData removeObject:phAsset];
         _total = (int) _imageData.count;
         
         if ([_undoImage count] > 3)
             [_undoImage removeObjectsInRange:NSMakeRange(0, [_undoImage count] - 3)];
+        if ([_undoPosition count] > 3)
+            [_undoPosition removeObjectsInRange:NSMakeRange(0, [_undoImage count] - 3)];
         
         [self revealNewImageHolder];
     } else {
@@ -582,6 +647,19 @@
     }];
 }
 
+- (void) removePhoto:(PHAsset*) photo fromCollection:(PHCollection*) collection {
+    PHAssetCollection *assetCollection = (PHAssetCollection *)collection;
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        PHAssetCollectionChangeRequest *changeRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:assetCollection];
+        [changeRequest removeAssets:[NSArray arrayWithObject:photo]];
+        
+        NSLog(@"Adding asset to %@...", changeRequest.title);
+    } completionHandler:^(BOOL success, NSError *error){
+        
+    }];
+}
+
 - (IBAction)undoClick:(id)sender {
     if ([_undoImage count] > 0) {
         ImageHolder *imgHolder = [_undoImage lastObject];
@@ -590,8 +668,14 @@
         PHAsset *asset = imgHolder.phAsset;
         [_imageData addObject:asset];
         
+        // Remove photo from collection
+        NSString *undoPosition = [_undoPosition lastObject];
+        [self removePhoto:asset fromCollection:[_phAlbums objectForKey:undoPosition]];
+        [self decreaseBadge:[_phBadges objectForKey:undoPosition]];
+        
         [self reArrangeImgHolder:kTypeTrash];
         [_undoImage removeLastObject];
+        [_undoPosition removeLastObject];
         [_trashImage removeLastObject];
         
         if ([_undoImage count] == 0)
@@ -732,6 +816,7 @@
                     NSLog(@"Need move to album Left");
                     
                     [self addPhotoToAlbum:[_phAlbums objectForKey:_lastPosition] withTouchView: touchView];
+                    [self increaseBadge:[_phBadges objectForKey:_lastPosition]];
                     
                     _touchStarted = NO;
                 }
@@ -741,6 +826,7 @@
                     NSLog(@"Need move to album Right");
                     
                     [self addPhotoToAlbum:[_phAlbums objectForKey:_lastPosition] withTouchView: touchView];
+                    [self increaseBadge:[_phBadges objectForKey:_lastPosition]];
                     
                     _touchStarted = NO;
                 }
@@ -750,6 +836,7 @@
                     NSLog(@"Need move to album Top");
                     
                     [self addPhotoToAlbum:[_phAlbums objectForKey:_lastPosition] withTouchView: touchView];
+                    [self increaseBadge:[_phBadges objectForKey:_lastPosition]];
                     
                     _touchStarted = NO;
                 }
@@ -759,6 +846,8 @@
                     NSLog(@"Need move to album Bottom");
                     
                     [self addPhotoToAlbum:[_phAlbums objectForKey:_lastPosition] withTouchView: touchView];
+                    [self increaseBadge:[_phBadges objectForKey:_lastPosition]];
+                    
                     _touchStarted = NO;
                 }
             } else {

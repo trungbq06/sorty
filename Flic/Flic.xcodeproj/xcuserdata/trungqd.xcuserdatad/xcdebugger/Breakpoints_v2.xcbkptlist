@@ -84,12 +84,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "440294620.12552"
+            timestampString = "440467046.403951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "375"
-            endingLineNumber = "375"
-            landmarkName = "-doTrash"
+            startingLineNumber = "423"
+            endingLineNumber = "423"
+            landmarkName = "-revealNewImageHolder"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -100,12 +100,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "440294620.12552"
+            timestampString = "440467046.403951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
-            landmarkName = "-doTrash"
+            startingLineNumber = "432"
+            endingLineNumber = "432"
+            landmarkName = "-revealNewImageHolder"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -116,12 +116,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "440292399.253783"
+            timestampString = "440467046.403951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "-photoPushback:"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "-request"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -132,12 +132,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "440292399.253783"
+            timestampString = "440467046.403951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "-arrangeImage:"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "-formatLabel:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -148,12 +148,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "440295073.061662"
+            timestampString = "440467046.403951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "521"
-            endingLineNumber = "521"
-            landmarkName = "-touchesBegan:withEvent:"
+            startingLineNumber = "569"
+            endingLineNumber = "569"
+            landmarkName = "-doKeep"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -180,12 +180,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "440295073.061662"
+            timestampString = "440467170.332077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "599"
-            endingLineNumber = "599"
-            landmarkName = "-touchesEnded:withEvent:"
+            startingLineNumber = "683"
+            endingLineNumber = "683"
+            landmarkName = "-undoClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37CDDB3E19FE004400624D91"
-               BuildableName = "Slide.app"
+               BuildableName = "Sorty.app"
                BlueprintName = "Flic"
                ReferencedContainer = "container:Flic.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37CDDB3E19FE004400624D91"
-            BuildableName = "Slide.app"
+            BuildableName = "Sorty.app"
             BlueprintName = "Flic"
             ReferencedContainer = "container:Flic.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37CDDB3E19FE004400624D91"
-            BuildableName = "Slide.app"
+            BuildableName = "Sorty.app"
             BlueprintName = "Flic"
             ReferencedContainer = "container:Flic.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37CDDB3E19FE004400624D91"
-            BuildableName = "Slide.app"
+            BuildableName = "Sorty.app"
             BlueprintName = "Flic"
             ReferencedContainer = "container:Flic.xcodeproj">
          </BuildableReference>

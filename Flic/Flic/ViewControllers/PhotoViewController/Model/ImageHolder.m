@@ -200,6 +200,7 @@
     if (!IS_IPHONE_5) {
         imgHeight = 200;
     }
+    imgHeight = [[[NSUserDefaults standardUserDefaults] objectForKey:kHeight] intValue];
     
     [_imageManager requestImageDataForAsset:phAsset options:nil resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
         UIImage *image = [UIImage imageWithData:imageData];
@@ -284,6 +285,8 @@
     if (!IS_IPHONE_5) {
         imgHeight = 200;
     }
+    imgHeight = [[[NSUserDefaults standardUserDefaults] objectForKey:kHeight] intValue];
+    _infoLabel.frame = CGRectMake(_infoLabel.frame.origin.x, imgHeight - 30, _infoLabel.frame.size.width, _infoLabel.frame.size.height);
     
     [_imageView setFrame:CGRectMake(0, 0, self.frame.size.width, imgHeight)];
     _originImage = _imageView.image;
@@ -297,6 +300,7 @@
     if (!IS_IPHONE_5) {
         imgHeight = 200;
     }
+    imgHeight = [[[NSUserDefaults standardUserDefaults] objectForKey:kHeight] intValue];
     
     _imageView = imageView;
     [_imageView setFrame:CGRectMake(0, 0, self.frame.size.width, imgHeight)];

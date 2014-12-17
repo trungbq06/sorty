@@ -23,6 +23,7 @@
 
 #define kImageNotify @"image_notify"
 #define kUpdateSize  @"update_size"
+#define kHeight      @"image_height"
 
 #define kTypeTop     @"top"
 #define kTypeRight   @"right"

@@ -42,6 +42,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *badgeInfo;
 @property (nonatomic, retain) NSMutableArray *trashImage;
 @property (nonatomic, retain) NSMutableArray *undoImage;
+@property (nonatomic, retain) NSMutableArray *undoPosition;
 @property (assign)            BOOL           touchStarted;
 @property (assign)            CGPoint        normalPoint;
 @property (weak, nonatomic) IBOutlet UITextView *introText;
@@ -58,6 +59,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *arrowRight;
 @property (weak, nonatomic) IBOutlet UIImageView *arrowLeft;
+@property (weak, nonatomic) IBOutlet UIImageView *arrowTop;
+@property (weak, nonatomic) IBOutlet UIImageView *arrowBottom;
 @property (weak, nonatomic) IBOutlet UILabel *albumTop;
 @property (weak, nonatomic) IBOutlet UILabel *albumRight;
 @property (weak, nonatomic) IBOutlet UILabel *albumBottom;
@@ -70,8 +73,16 @@
 
 @property (nonatomic, retain) NSString       *lastPosition;
 @property (nonatomic, retain) NSMutableDictionary *phAlbums;
+@property (nonatomic, retain) NSMutableDictionary *phBadges;
 
 @property (nonatomic, assign) int           totalSortedImage;
+@property (nonatomic, assign) int           imageHeight;
+@property (weak, nonatomic) IBOutlet UIView *rightAlbumView;
+@property (weak, nonatomic) IBOutlet UIView *leftAlbumView;
+@property (weak, nonatomic) IBOutlet UILabel *badgeTop;
+@property (weak, nonatomic) IBOutlet UILabel *badgeRight;
+@property (weak, nonatomic) IBOutlet UILabel *badgeBottom;
+@property (weak, nonatomic) IBOutlet UILabel *badgeLeft;
 
 - (IBAction)trashClick:(id)sender;
 - (IBAction)keepClick:(id)sender;
