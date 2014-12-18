@@ -13,25 +13,25 @@
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "rsz_1rsz_1slide_icon.png",
+      "filename" : "Icon_80.png",
       "scale" : "2x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "rsz_slide_icon-1.png",
+      "filename" : "Icon_120-1.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "rsz_slide_icon.png",
+      "filename" : "Icon_120.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "rsz_1slide_icon.png",
+      "filename" : "Sorty_Icon.png",
       "scale" : "3x"
     }
   ],

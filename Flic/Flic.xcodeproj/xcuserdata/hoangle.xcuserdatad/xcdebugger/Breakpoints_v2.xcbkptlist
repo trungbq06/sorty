@@ -274,12 +274,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "440403929.953878"
+            timestampString = "440614253.937453"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "411"
-            endingLineNumber = "411"
-            landmarkName = "-reArrangeImgHolder:"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
+            landmarkName = "-trashClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -306,12 +306,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "440403929.953878"
+            timestampString = "440614092.323446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "318"
             endingLineNumber = "318"
-            landmarkName = "-photoPushback:"
+            landmarkName = "-initImageHolder"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -370,7 +370,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Flic/ViewControllers/PhotoViewController/PhotoViewController.m"
-            timestampString = "440403291.13241"
+            timestampString = "440614092.323446"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"

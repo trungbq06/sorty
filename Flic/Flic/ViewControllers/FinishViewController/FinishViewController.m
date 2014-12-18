@@ -94,7 +94,9 @@
     MFMailComposeViewController *mViewController = [[MFMailComposeViewController alloc] init];
     mViewController.mailComposeDelegate = self;
     [mViewController setSubject:@"Sort Photos"];
-    [mViewController setMessageBody:@"Best photos app that you ever experience !" isHTML:NO];
+    NSString *message = [NSString stringWithFormat:@"Wow, I sorted out %d #iPhone Photos in few minutes only using #Sorty App by @AppDeveloper99 *%@*", _totalImage, kReviewURL];
+    
+    [mViewController setMessageBody:message isHTML:NO];
     
     [self presentViewController:mViewController animated:TRUE completion:nil];
 }

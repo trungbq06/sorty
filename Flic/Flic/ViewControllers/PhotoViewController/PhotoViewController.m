@@ -47,7 +47,7 @@
     [self.view addSubview:_adView];
     
 //    [self loadIntersial];
-    [self performSelectorOnMainThread:@selector(loadBanner) withObject:nil waitUntilDone:NO];
+//    [self performSelectorOnMainThread:@selector(loadBanner) withObject:nil waitUntilDone:NO];
     
     /*
     NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
@@ -124,7 +124,7 @@
     
     bannerShown = TRUE;
     
-    [self loadBanner];
+//    [self loadBanner];
 }
 
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
@@ -317,6 +317,8 @@
 
 - (void) initImageHolder
 {
+//    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+
     _total = (int) _imageData.count;
     
     int start = kStart;
@@ -342,6 +344,8 @@
     }
     
     [self bringAlbumToFront];
+    
+//    [self performSelectorOnMainThread:@selector(loadBanner) withObject:nil waitUntilDone:NO];
 }
 
 - (void) bringAlbumToFront {
