@@ -778,8 +778,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Shahzaib Khan (6T2TF5WUUD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shahzaib Khan (6T2TF5WUUD)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shahzaib Khan (L427VP8V6J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shahzaib Khan (L427VP8V6J)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flic/Flic-Prefix.pch";
 				INFOPLIST_FILE = Flic/Info.plist;
@@ -791,7 +791,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Sorty;
-				PROVISIONING_PROFILE = "955269ac-984b-4df0-8002-22e2575f7d0d";
+				PROVISIONING_PROFILE = "ceca4c0f-d856-407b-aadf-106b07564dc2";
 			};
 			name = Debug;
 		};
@@ -799,8 +799,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Shahzaib Khan (6T2TF5WUUD)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shahzaib Khan (6T2TF5WUUD)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shahzaib Khan (L427VP8V6J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shahzaib Khan (L427VP8V6J)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Flic/Flic-Prefix.pch";
 				INFOPLIST_FILE = Flic/Info.plist;
@@ -812,7 +812,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Sorty;
-				PROVISIONING_PROFILE = "955269ac-984b-4df0-8002-22e2575f7d0d";
+				PROVISIONING_PROFILE = "ceca4c0f-d856-407b-aadf-106b07564dc2";
 			};
 			name = Release;
 		};

@@ -1828,7 +1828,7 @@
                                     <action selector="btnFeedbackClick:" destination="XDD-KO-7GC" eventType="touchUpInside" id="5Zt-tP-QQD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-fj-MOf">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOb-fj-MOf">
                                 <rect key="frame" x="112" y="432" width="37" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="Mhv-bi-cYq"/>
@@ -1854,7 +1854,7 @@
                                     <action selector="btnAdsClick:" destination="XDD-KO-7GC" eventType="touchUpInside" id="WVi-Ve-Yaf"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myI-ej-OMx">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myI-ej-OMx">
                                 <rect key="frame" x="167" y="432" width="37" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="37" id="IJR-5Z-SK9"/>

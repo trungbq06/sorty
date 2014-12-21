@@ -35,19 +35,18 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoPushback:) name:kPhotoPushbackNotify object:nil];
     
-    _isPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:kPurchased];
-    CGRect appframe = [[UIScreen mainScreen] bounds];
+//    _isPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:kPurchased];
+//    CGRect appframe = [[UIScreen mainScreen] bounds];
+//    
+//    if (!_isPurchased) {
+//        _adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, appframe.size.height - 50, appframe.size.width, 50)];
+//        _adView.delegate = self;
+//        _adView.hidden = TRUE;
+//    }
     
-    if (!_isPurchased) {
-        _adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, appframe.size.height - 50, appframe.size.width, 50)];
-        _adView.delegate = self;
-        _adView.hidden = TRUE;
-    }
+//    [self.view addSubview:_adView];
     
-    [self.view addSubview:_adView];
-    
-//    [self loadIntersial];
-//    [self performSelectorOnMainThread:@selector(loadBanner) withObject:nil waitUntilDone:NO];
+//    [self loadIntersial]
     
     /*
     NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
@@ -115,6 +114,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(restoreImageHolder:) name:kImageNotify object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateImageSize:) name:kUpdateSize object:nil];
+    
+//    [self performSelectorOnMainThread:@selector(loadBanner) withObject:nil waitUntilDone:NO];
+    [self loadBanner];
 }
 
 #pragma mark - LOAD BANNER
@@ -174,7 +176,7 @@
 }
 
 - (void) loadBanner {
-    CGRect appframe= [[UIScreen mainScreen] applicationFrame];
+    CGRect appframe= [[UIScreen mainScreen] bounds];
     
     bannerView_ = [[GADBannerView alloc]
                    initWithFrame:CGRectMake(0.0,
@@ -358,6 +360,8 @@
     [self.view bringSubviewToFront:_arrowBottom];
     [self.view bringSubviewToFront:_badgeTop];
     [self.view bringSubviewToFront:_badgeBottom];
+    
+    [self.view bringSubviewToFront:bannerView_];
 }
 
 #pragma MARK - Photo Push back

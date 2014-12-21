@@ -127,7 +127,7 @@
 - (IBAction)btnInappClick:(id)sender {
     [SVProgressHUD showWithStatus:@"Processing ..." maskType:SVProgressHUDMaskTypeBlack];
     
-    NSArray *identifiers = [NSArray arrayWithObjects:@"", nil];
+    NSArray *identifiers = [NSArray arrayWithObjects:@"com.account.sorty.by", nil];
     [self validateProductIdentifiers:identifiers];
 }
 
