@@ -19,7 +19,7 @@
 @interface PhotoViewController : UIViewController <GADBannerViewDelegate, GADInterstitialDelegate, ADBannerViewDelegate>
 {
     //AdMob
-    GADBannerView *bannerView_;
+    IBOutlet GADBannerView *bannerView_;
     GADInterstitial *interstitial_;
     
     BOOL bannerIsVisible;

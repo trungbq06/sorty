@@ -35,16 +35,16 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoPushback:) name:kPhotoPushbackNotify object:nil];
     
-//    _isPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:kPurchased];
-//    CGRect appframe = [[UIScreen mainScreen] bounds];
-//    
-//    if (!_isPurchased) {
-//        _adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, appframe.size.height - 50, appframe.size.width, 50)];
-//        _adView.delegate = self;
-//        _adView.hidden = TRUE;
-//    }
+    _isPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:kPurchased];
+    CGRect appframe = [[UIScreen mainScreen] bounds];
     
-//    [self.view addSubview:_adView];
+    if (!_isPurchased) {
+        _adView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, appframe.size.height - 50, appframe.size.width, 50)];
+        _adView.delegate = self;
+        _adView.hidden = TRUE;
+    }
+    
+    [self.view addSubview:_adView];
     
 //    [self loadIntersial]
     
